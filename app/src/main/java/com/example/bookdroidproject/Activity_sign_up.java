@@ -3,11 +3,11 @@ package com.example.bookdroidproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Register_Activity extends AppCompatActivity {
+public class Activity_sign_up extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_);
+        setContentView(R.layout.activity_sign_up);
     }
 }
