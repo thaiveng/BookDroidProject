@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
     android:gravity="center"
     android:orientation="vertical"
@@ -39,46 +39,6 @@
         android:drawableLeft="@drawable/ic_email"
         android:hint="Email"
         android:textSize="20sp" />
-
-    
-    
-    <LinearLayout
-        android:background="@drawable/custom_edt_bg"
-        android:layout_marginBottom="10dp"
-        android:gravity="center_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <com.hbb20.CountryCodePicker
-            app:ccp_showFullName="true"
-            app:ccp_showNameCode="false"
-            app:ccp_showPhoneCode="true"
-            app:ccp_countryPreference="CAM,LAOS,VN"
-            android:id="@+id/ccp"
-            app:ccp_defaultNameCode="US"
-            app:ccpDialog_showPhoneCode="true"
-
-            app:ccp_textGravity="LEFT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        </com.hbb20.CountryCodePicker>
-
-
-        <EditText
-            android:id="@+id/edtPhoneNumber_signup"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:hint="Phone number" />
-
-
-    </LinearLayout>
-
-
-
-
-
-
 
 
     <EditText
