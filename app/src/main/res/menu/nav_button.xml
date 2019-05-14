@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/books"
+        android:title="Books"
+        android:icon="@drawable/ic_books"
+        app:showAsAction="never"
+        >
+    </item>
+    <item
+        android:id="@+id/feeds"
+        android:title="Feeds"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_feeds"
+        >
+    </item>
+
+    <item
+        android:id="@+id/posts"
+        android:icon="@drawable/ic_add"
+        android:title="Posts"
+        app:showAsAction="never"
+        >
+    </item>
+    <item
+        android:icon="@drawable/ic_notifications"
+        android:id="@+id/notification"
+        android:title="Notification"
+        app:showAsAction="never"
+        >
+    </item>
+    <item
+        android:icon="@drawable/ic_store"
+        android:id="@+id/store"
+        android:title="Store"
+        app:showAsAction="never"
+        android:visible="true"
+        >
+    </item>
+</menu>
