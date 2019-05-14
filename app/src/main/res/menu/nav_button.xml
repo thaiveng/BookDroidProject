@@ -2,6 +2,8 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
     <item
         android:id="@+id/books"
         android:title="Books"
@@ -9,6 +11,8 @@
         app:showAsAction="never"
         >
     </item>
+
+
     <item
         android:id="@+id/feeds"
         android:title="Feeds"
@@ -17,6 +21,7 @@
         >
     </item>
 
+
     <item
         android:id="@+id/posts"
         android:icon="@drawable/ic_add"
@@ -24,6 +29,8 @@
         app:showAsAction="never"
         >
     </item>
+
+
     <item
         android:icon="@drawable/ic_notifications"
         android:id="@+id/notification"
@@ -31,12 +38,14 @@
         app:showAsAction="never"
         >
     </item>
+
+
     <item
         android:icon="@drawable/ic_store"
         android:id="@+id/store"
         android:title="Store"
         app:showAsAction="never"
-        android:visible="true"
+
         >
     </item>
 </menu>

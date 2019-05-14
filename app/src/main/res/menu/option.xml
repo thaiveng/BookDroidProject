@@ -2,16 +2,37 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/item1"
-        android:title="Item 1"
+        android:id="@+id/item_profile"
+        android:title="Profile"
         app:showAsAction="never"
         >
     </item>
+
+
     <item
-        android:id="@+id/item3"
-        android:title="Item 3"
+        android:id="@+id/item_about_us"
+        android:title="About Us"
         app:showAsAction="never"
         >
     </item>
+
+
+    <item
+        android:id="@+id/item_term_of_use"
+        android:title="Term of Use"
+        app:showAsAction="never"
+        >
+    </item>
+
+
+    <item
+        android:id="@+id/item_signout"
+        android:title="Signout"
+        app:showAsAction="never"
+        >
+    </item>
+
+
 </menu>

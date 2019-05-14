@@ -1,55 +1,146 @@
 package com.example.bookdroidproject;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
+import android.widget.Toast;
+
 
 import com.example.bookdroidproject.adapter.PageAdapter;
 
 public class Activity_books extends AppCompatActivity {
 
-    private DrawerLayout drawerLayoutMain;
-    private NavigationView navigationView;
-    private ActionBarDrawerToggle toggle;
-    private ViewPager pager;
-    private PagerAdapter adapter;
+    private DrawerLayout drawerLayout;
+    private Toolbar toolbar;
     private TabLayout tabLayout;
-    private TabItem tabNovel,tabProgramming,tabSport,tabMathematic,tabTourist,tabMindset;
+    private ViewPager viewPager;
+    private NavigationView navigationView;
+    private BottomNavigationView bottomNavigationView;
+    private ActionBarDrawerToggle toggle;
+    private PageAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
 
-        pager = findViewById(R.id.view_pager_home);
-        tabNovel = findViewById(R.id.tab_novel);
-        tabMathematic = findViewById(R.id.tab_Mathematics);
-        tabMindset = findViewById(R.id.tab_mindset);
-        tabSport = findViewById(R.id.tab_sport);
-        tabTourist = findViewById(R.id.tab_tourist);
-        tabProgramming = findViewById(R.id.tab_programming);
+
+        // call this method to find id of each element
+        initView();
+
+
+        initToolBar();
+
+        // call this method to make action when click on each tab
+        setUpViewPager();
+
+        // call this method to make action when click on each icon of bottom navigation
+        setActionBottomNavigationView();
+
+
+        setUpNavigationView();
+
+    }
+
+    // method to set up tool bar
+    private void initToolBar(){
+
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+
+    }
+
+
+
+    // method to find each element id
+    private void initView(){
+
         tabLayout = findViewById(R.id.tab_layout);
-        drawerLayoutMain = findViewById(R.id.drawerlayout);
+        viewPager = findViewById(R.id.view_pager);
+        bottomNavigationView = findViewById(R.id.bottom_navigationView);
+        toolbar = findViewById(R.id.toolBar);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+
+
+
+    }
+
+
+
+    private void setUpNavigationView(){
+
+        drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_main);
 
-        toggle = new ActionBarDrawerToggle(this,drawerLayoutMain, R.string.opened_menu, R.string.closed_menu);
-        drawerLayoutMain.addDrawerListener(toggle);
-        toggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+
+                switch (menuItem.getItemId()){
+
+                    case R.id.item_profile:
+                    Toast.makeText(getApplicationContext(),"You are selected profile",Toast.LENGTH_SHORT).show();
+                    drawerLayout.closeDrawers();
+                    return true;
+
+
+                    case R.id.item_about_us:
+                        Toast.makeText(getApplicationContext(),"You are selected about us",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        return true;
+
+
+                    case R.id.item_term_of_use:
+                        Toast.makeText(getApplicationContext(),"You are selected term of use",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        return true;
+
+
+                    case R.id.item_signout:
+                        Toast.makeText(getApplicationContext(),"You are selected signout",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        return true;
+                }
+
+
+                return false;
+            }
+        });
+    }
+
+
+    // method to setup viewpager when click on each tab
+    private void setUpViewPager(){
 
         adapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
-        pager.setAdapter(adapter);
+
+        viewPager.setAdapter(adapter);
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
         tabLayout.addOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                pager.setCurrentItem(tab.getPosition());
+
+                viewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override
@@ -62,16 +153,65 @@ public class Activity_books extends AppCompatActivity {
 
             }
         });
-        pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
     }
+
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(toggle.onOptionsItemSelected(item)){
-            return true;
+
+        switch (item.getItemId()){
+
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    // set action to bottom navigation view
+
+    private void setActionBottomNavigationView(){
+
+         BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+                = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+
+                    case R.id.books:
+                        Toast.makeText(getApplicationContext(),"You are selected book icon",Toast.LENGTH_SHORT).show();
+                        return true;
+
+
+                    case R.id.feeds:
+                        Toast.makeText(getApplicationContext(),"You are selected feed icon",Toast.LENGTH_SHORT).show();
+                        return true;
+
+
+                    case R.id.posts:
+                        Toast.makeText(getApplicationContext(),"You are selected posts icon",Toast.LENGTH_SHORT).show();
+                        return true;
+
+
+                    case R.id.notification:
+                        Toast.makeText(getApplicationContext(),"You are selected notification icon",Toast.LENGTH_SHORT).show();
+                        return true;
+
+
+                    case R.id.store:
+                        Toast.makeText(getApplicationContext(),"You are selected store icon",Toast.LENGTH_SHORT).show();
+                        return true;
+                }
+
+                return false;
+
+            }
+        };
     }
 
 }
