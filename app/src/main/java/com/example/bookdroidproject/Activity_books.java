@@ -1,5 +1,6 @@
 package com.example.bookdroidproject;
 
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
@@ -8,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.bookdroidproject.adapter.PageAdapter;
@@ -39,7 +39,7 @@ public class Activity_books extends AppCompatActivity {
         drawerLayoutMain = findViewById(R.id.drawerlayout);
         navigationView = findViewById(R.id.nav_main);
 
-        toggle = new ActionBarDrawerToggle(this,drawerLayoutMain,R.string.opened_menu,R.string.closed_menu);
+        toggle = new ActionBarDrawerToggle(this,drawerLayoutMain, R.string.opened_menu, R.string.closed_menu);
         drawerLayoutMain.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
