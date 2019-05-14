@@ -1,117 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="center"
-    android:gravity="center"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     android:orientation="vertical"
-    android:background="#565E7C"
-    android:layout_height="match_parent">
+    tools:context=".Activity_sign_up">
 
     <TextView
-        android:layout_marginBottom="20dp"
-        android:text="Sign Up"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
         android:textColor="@color/colorLogo"
-        android:layout_width="350dp"
-        android:layout_height="70dp" />
-
-
-    <EditText
-        android:layout_marginBottom="10dp"
-        android:id="@+id/edtUsername_signup"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_edt_bg"
-        android:drawableLeft="@drawable/ic_username"
-        android:hint="Username"
-        android:textSize="20sp" />
-
-
-    <EditText
-        android:layout_marginBottom="10dp"
-        android:id="@+id/edtEmail_signup"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_edt_bg"
-        android:drawableLeft="@drawable/ic_email"
-        android:hint="Email"
-        android:textSize="20sp" />
-
-    
-    
-    <LinearLayout
-        android:background="@drawable/custom_edt_bg"
-        android:layout_marginBottom="10dp"
-        android:gravity="center_vertical"
+        android:layout_marginTop="76dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Sign Up"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <com.hbb20.CountryCodePicker
-            app:ccp_showFullName="true"
-            app:ccp_showNameCode="false"
-            app:ccp_showPhoneCode="true"
-            app:ccp_countryPreference="CAM,LAOS,VN"
-            android:id="@+id/ccp"
-            app:ccp_defaultNameCode="US"
-            app:ccpDialog_showPhoneCode="true"
-
-            app:ccp_textGravity="LEFT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        </com.hbb20.CountryCodePicker>
+        android:layout_height="wrap_content" />
 
 
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="49.2dp"
+        android:layout_width="313dp"
+        android:background="@drawable/radius_shape"
+        android:layout_height="38dp">
+
+        <ImageView
+            android:id="@+id/img_user"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/colorLogo" />
         <EditText
-            android:id="@+id/edtPhoneNumber_signup"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:hint="Phone number" />
 
 
-    </LinearLayout>
+            android:layout_marginLeft="15dp"
+            android:id="@+id/edit_text_user"
+            android:singleLine="true"
+            android:hint="Username"
+            android:layout_toRightOf="@id/img_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="49.2dp"
+        android:layout_width="313dp"
+        android:background="@drawable/radius_shape"
+        android:layout_height="38dp">
+
+        <ImageView
+            android:id="@+id/img_email"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/colorLogo" />
+        <EditText
 
 
+            android:layout_marginLeft="15dp"
+            android:id="@+id/edit_text_email"
+            android:singleLine="true"
+            android:hint="Email"
+            android:layout_toRightOf="@id/img_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="49.2dp"
+        android:layout_width="313dp"
+        android:background="@drawable/radius_shape"
+        android:layout_height="38dp">
+
+        <ImageView
+            android:id="@+id/img_phone"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/colorLogo" />
+        <EditText
 
 
+            android:layout_marginLeft="15dp"
+            android:id="@+id/edit_text_phone"
+            android:singleLine="true"
+            android:hint="Phone Number"
+            android:layout_toRightOf="@id/img_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="49.2dp"
+        android:layout_width="313dp"
+        android:background="@drawable/radius_shape"
+        android:layout_height="38dp">
+
+        <ImageView
+            android:id="@+id/img_pwd"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/colorLogo" />
+        <EditText
 
 
+            android:layout_marginLeft="15dp"
+            android:id="@+id/edit_text_pwd"
+            android:singleLine="true"
+            android:hint="Password"
+            android:layout_toRightOf="@id/img_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="49.2dp"
+        android:layout_width="313dp"
+        android:background="@drawable/radius_shape"
+        android:layout_height="38dp">
+
+        <ImageView
+            android:id="@+id/img_con_pwd"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/colorLogo" />
+        <EditText
 
 
-    <EditText
-        android:layout_marginBottom="10dp"
-        android:id="@+id/edtPassword_signup"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_edt_bg"
-        android:drawableLeft="@drawable/ic_password"
-        android:hint="Email"
-        android:textSize="20sp" />
-
-
-    <EditText
-        android:id="@+id/edtConfirmPassword_signup"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_edt_bg"
-        android:drawableLeft="@drawable/ic_password"
-        android:hint="Email"
-        android:textSize="20sp" />
-
+            android:layout_marginLeft="15dp"
+            android:id="@+id/edit_text_con_pwd"
+            android:singleLine="true"
+            android:hint="Confirm Password"
+            android:layout_toRightOf="@id/img_con_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
 
     <Button
+
         android:background="@drawable/radius_shape"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/colorLogo"
-        android:textSize="25sp"
-        android:text="Submit"
-        android:layout_width="150dp"
-        android:layout_height="70dp" />
-
-
-
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="Login"
+        android:layout_width="76dp"
+        android:layout_height="28dp" />
 
 </LinearLayout>
