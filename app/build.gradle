@@ -28,15 +28,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
 
-
     // add library for search bar
     implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
 
 
-
     // add library for imageview circle
     implementation 'de.hdodenhof:circleimageview:3.0.0'
-
 
 
 }
