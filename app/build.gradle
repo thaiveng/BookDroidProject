@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.bookdroidproject"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -26,8 +26,17 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.android.support:appcompat-v7:23.1.1'
 
-    //add library
+
+
+    // add library for search bar
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
+
+
+
+    // add library for imageview circle
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+
 
 }

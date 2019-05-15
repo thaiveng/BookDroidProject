@@ -6,12 +6,14 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
@@ -19,9 +21,15 @@ import android.widget.Toast;
 
 
 import com.example.bookdroidproject.adapter.PageAdapter;
+import com.mancj.materialsearchbar.MaterialSearchBar;
+
+import java.util.List;
 
 public class Activity_books extends AppCompatActivity {
 
+
+    private List<String> lastSearches;
+    private MaterialSearchBar searchBar;
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -30,6 +38,8 @@ public class Activity_books extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private ActionBarDrawerToggle toggle;
     private PageAdapter adapter;
+
+    SearchView searchView;
 
 
     @Override
@@ -59,6 +69,7 @@ public class Activity_books extends AppCompatActivity {
     private void initToolBar(){
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
@@ -69,6 +80,7 @@ public class Activity_books extends AppCompatActivity {
 
     // method to find each element id
     private void initView(){
+
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
@@ -213,5 +225,7 @@ public class Activity_books extends AppCompatActivity {
             }
         };
     }
+
+
 
 }
