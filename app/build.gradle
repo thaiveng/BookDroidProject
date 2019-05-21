@@ -35,5 +35,8 @@ dependencies {
     // add library for imageview circle
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
+    //loading view
+    implementation 'com.wang.avi:library:2.1.3'
+
 
 }

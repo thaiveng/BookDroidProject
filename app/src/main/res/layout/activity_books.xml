@@ -11,6 +11,7 @@
 
 
     <RelativeLayout
+        android:focusableInTouchMode="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -22,6 +23,7 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/rel_searchview"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -39,9 +41,9 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="14dp"
             android:layout_marginLeft="50dp"
-            android:background="#FFF"
-            android:layout_width="250dp"
-            android:layout_height="25dp">
+            android:background="@drawable/radius_shape"
+            android:layout_width="280dp"
+            android:layout_height="30dp">
 
 
             <ImageView
@@ -52,14 +54,11 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp" />
 
-
-
             <EditText
-                android:hint="Search book"
+                android:paddingTop="1dp"
+                android:hint="Search"
                 android:id="@+id/edtSearch"
                 android:singleLine="true"
-                android:textColor="#000"
-                android:background="@drawable/style_edt_search"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/imgSearch"
                 android:layout_width="match_parent"
@@ -114,34 +113,43 @@
 
         </android.support.design.widget.TabLayout>
 
+        <android.support.design.widget.TabLayout
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/tab_layout"
+            app:tabGravity="fill"
+            app:tabBackground="@drawable/selected_color"
+            android:id="@+id/tab_layout_secondary"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            tools:ignore="MissingConstraints">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tab_borrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Borrow" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tab_buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy" />
+
+        </android.support.design.widget.TabLayout>
+
+
 
         <android.support.v4.view.ViewPager
-            android:layout_below="@id/tab_layout"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/tab_layout_secondary"
             android:layout_above="@id/bottom_navigationView"
             android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="NotSibling">
 
         </android.support.v4.view.ViewPager>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:layout_marginTop="130dp"
-            android:orientation="horizontal">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/lv_home"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                app:layoutManager="android.support.v7.widget.LinearLayoutManager"></android.support.v7.widget.RecyclerView>
-
-        </LinearLayout>
-
 
         <android.support.design.widget.BottomNavigationView
             app:itemIconTint="@color/colorPrimary"

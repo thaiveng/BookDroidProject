@@ -26,15 +26,13 @@
         android:layout_height="38dp">
 
         <ImageView
+            android:src="@drawable/ic_person_black_24dp"
             android:id="@+id/img_user"
             android:layout_marginTop="4dp"
             android:layout_marginLeft="10dp"
             android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@color/colorLogo" />
+            android:layout_height="30dp"/>
         <EditText
-
-
             android:layout_marginLeft="15dp"
             android:id="@+id/edit_text_user"
             android:singleLine="true"
@@ -52,12 +50,12 @@
         android:layout_height="38dp">
 
         <ImageView
+            android:src="@drawable/ic_email"
             android:id="@+id/img_email"
             android:layout_marginTop="4dp"
             android:layout_marginLeft="10dp"
             android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@color/colorLogo" />
+            android:layout_height="30dp"/>
         <EditText
             android:layout_marginLeft="15dp"
             android:id="@+id/edit_text_email"
@@ -100,12 +98,12 @@
         android:layout_height="38dp">
 
         <ImageView
+            android:src="@drawable/ic_lock"
             android:id="@+id/img_pwd"
             android:layout_marginTop="4dp"
             android:layout_marginLeft="10dp"
             android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@color/colorLogo" />
+            android:layout_height="30dp"/>
         <EditText
             android:layout_marginLeft="15dp"
             android:id="@+id/edit_text_pwd"
@@ -124,12 +122,12 @@
         android:layout_height="38dp">
 
         <ImageView
+            android:src="@drawable/ic_lock"
             android:id="@+id/img_con_pwd"
             android:layout_marginTop="4dp"
             android:layout_marginLeft="10dp"
             android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@color/colorLogo" />
+            android:layout_height="30dp"/>
         <EditText
             android:layout_marginLeft="15dp"
             android:id="@+id/edit_text_con_pwd"

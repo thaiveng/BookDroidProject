@@ -12,17 +12,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 
+import com.example.bookdroidproject.adapter.BooksAdapter;
 import com.example.bookdroidproject.adapter.PageAdapter;
+import com.example.bookdroidproject.model.Booksmodel;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Activity_books extends AppCompatActivity {
@@ -51,7 +59,6 @@ public class Activity_books extends AppCompatActivity {
         // call this method to find id of each element
         initView();
 
-
         initToolBar();
 
         // call this method to make action when click on each tab
@@ -60,10 +67,10 @@ public class Activity_books extends AppCompatActivity {
         // call this method to make action when click on each icon of bottom navigation
         setActionBottomNavigationView();
 
-
         setUpNavigationView();
 
     }
+
 
     // method to set up tool bar
     private void initToolBar(){
@@ -89,12 +96,7 @@ public class Activity_books extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
-
-
-
     }
-
-
 
     private void setUpNavigationView(){
 
@@ -105,7 +107,6 @@ public class Activity_books extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-
                 switch (menuItem.getItemId()){
 
                     case R.id.item_profile:
@@ -113,18 +114,15 @@ public class Activity_books extends AppCompatActivity {
                     drawerLayout.closeDrawers();
                     return true;
 
-
                     case R.id.item_about_us:
                         Toast.makeText(getApplicationContext(),"You are selected about us",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
 
-
                     case R.id.item_term_of_use:
                         Toast.makeText(getApplicationContext(),"You are selected term of use",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
-
 
                     case R.id.item_signout:
                         Toast.makeText(getApplicationContext(),"You are selected signout",Toast.LENGTH_SHORT).show();
@@ -132,15 +130,22 @@ public class Activity_books extends AppCompatActivity {
                         return true;
                 }
 
-
                 return false;
             }
         });
     }
 
-
     // method to setup viewpager when click on each tab
     private void setUpViewPager(){
+        final ViewPager touchView = findViewById(R.id.view_pager);
+        touchView.setOnTouchListener(new View.OnTouchListener()
+        {
+            @Override
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                return true;
+            }
+        });
 
         adapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
 
@@ -167,8 +172,6 @@ public class Activity_books extends AppCompatActivity {
         });
 
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -199,11 +202,9 @@ public class Activity_books extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"You are selected book icon",Toast.LENGTH_SHORT).show();
                         return true;
 
-
                     case R.id.feeds:
                         Toast.makeText(getApplicationContext(),"You are selected feed icon",Toast.LENGTH_SHORT).show();
                         return true;
-
 
                     case R.id.posts:
                         Toast.makeText(getApplicationContext(),"You are selected posts icon",Toast.LENGTH_SHORT).show();
