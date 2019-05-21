@@ -20,48 +20,23 @@
 
         </include>
 
-
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:id="@+id/linear_ScreenStore"
-            android:layout_below="@id/toolBar"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <Button
-                android:textStyle="bold"
-                android:background="@color/colorBackground"
-                android:id="@+id/btn_borrowScreenStore"
-                android:text="Borrow"
-                android:layout_width="100dp"
-                android:layout_height="40dp" />
-
-
-            <Button
-                android:background="@color/searchBarDividerColorDark"
-                android:textStyle="bold"
-                android:id="@+id/btn_buyScreenStore"
-                android:text="Buy"
-                android:layout_width="100dp"
-                android:layout_height="40dp" />
-
-
-        </LinearLayout>
-
-
-        <GridView
+            android:orientation="vertical"
+            android:id="@+id/linear_listViewFollowing"
             android:layout_above="@id/bottom_navigationView"
-            android:layout_below="@id/linear_ScreenStore"
-            android:id="@+id/gridview_ScreenStore"
-            android:columnWidth="100dp"
-            android:numColumns="auto_fit"
+            android:layout_below="@id/toolBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </GridView>
+            <ListView
+                android:layout_marginBottom="10dp"
+                android:id="@+id/list_view_ScreenUserFollowing"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+
+        </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_marginTop="8dp"

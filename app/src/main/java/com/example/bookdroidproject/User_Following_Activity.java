@@ -3,9 +3,7 @@ package com.example.bookdroidproject;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,55 +11,63 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.GridLayout;
-import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.bookdroidproject.adapter.ImageAdapter;
-import com.example.bookdroidproject.adapter.PageAdapter;
+import com.example.bookdroidproject.adapter.UserFollowingAdapter;
+import com.example.bookdroidproject.model.User_Following_model;
 
-public class Activity_Stores extends AppCompatActivity {
+import java.util.List;
+
+public class User_Following_Activity extends AppCompatActivity {
+
 
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
     private NavigationView navigationView;
     private BottomNavigationView bottomNavigationView;
     private ActionBarDrawerToggle toggle;
-    private PageAdapter adapter;
-
-    private GridView gridView;
-    private ImageAdapter imageAdapter;
 
 
-    private Integer[] imgID = {R.drawable.b2,R.drawable.b3,R.drawable.b4,R.drawable.b5,R.drawable.b6};
+    private User_Following_model objUserFollowing;
+    private List<User_Following_model> listUserFollowing;
+    private ListView listView;
+    private UserFollowingAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity__stores);
+        setContentView(R.layout.activity_user__following_);
 
 
-
-        // call this method to find id of each element
-        initView();
+        bottomNavigationView = findViewById(R.id.bottom_navigationView);
+        listView = findViewById(R.id.list_view_ScreenUserFollowing);
 
 
         initToolBar();
+
+
+        setUpNavigationView();
 
 
         // call this method to make action when click on each icon of bottom navigation
         setActionBottomNavigationView();
 
 
-        setUpNavigationView();
 
-
-        gridView = findViewById(R.id.gridview_ScreenStore);
-        imageAdapter = new ImageAdapter(getApplicationContext(),imgID);
-
-        gridView.setAdapter(imageAdapter);
+//        objUserFollowing = new User_Following_model(R.drawable.user_profile,"Username1","Following");
+//        objUserFollowing = new User_Following_model(R.drawable.user_profile,"Username2","Following");
+//        objUserFollowing = new User_Following_model(R.drawable.user_profile,"Username3","Following");
+//        objUserFollowing = new User_Following_model(R.drawable.user_profile,"Username4","Following");
+//        objUserFollowing = new User_Following_model(R.drawable.user_profile,"Username5","Following");
+//
+//
+//        listUserFollowing.add(objUserFollowing);
+//
+//        adapter = new UserFollowingAdapter(getApplicationContext(),listUserFollowing);
+//
+//
+//        listView.setAdapter(adapter);
 
     }
 
@@ -70,28 +76,12 @@ public class Activity_Stores extends AppCompatActivity {
     // method to set up tool bar
     private void initToolBar(){
 
+        toolbar = findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-
-    }
-
-
-
-    // method to find each element id
-    private void initView(){
-
-        tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.view_pager);
-        bottomNavigationView = findViewById(R.id.bottom_navigationView);
-        toolbar = findViewById(R.id.toolBar);
-        setSupportActionBar(toolbar);
-        ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
-
-
 
     }
 
@@ -138,6 +128,7 @@ public class Activity_Stores extends AppCompatActivity {
             }
         });
     }
+
 
 
     @Override
@@ -195,5 +186,4 @@ public class Activity_Stores extends AppCompatActivity {
             }
         };
     }
-
 }
