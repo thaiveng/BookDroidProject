@@ -59,8 +59,6 @@
             android:layout_height="30dp"
             android:background="@color/colorLogo" />
         <EditText
-
-
             android:layout_marginLeft="15dp"
             android:id="@+id/edit_text_email"
             android:singleLine="true"
@@ -85,8 +83,6 @@
             android:layout_height="30dp"
             android:background="@color/colorLogo" />
         <EditText
-
-
             android:layout_marginLeft="15dp"
             android:id="@+id/edit_text_phone"
             android:singleLine="true"
@@ -111,8 +107,6 @@
             android:layout_height="30dp"
             android:background="@color/colorLogo" />
         <EditText
-
-
             android:layout_marginLeft="15dp"
             android:id="@+id/edit_text_pwd"
             android:singleLine="true"
@@ -137,8 +131,6 @@
             android:layout_height="30dp"
             android:background="@color/colorLogo" />
         <EditText
-
-
             android:layout_marginLeft="15dp"
             android:id="@+id/edit_text_con_pwd"
             android:singleLine="true"
@@ -149,7 +141,6 @@
     </RelativeLayout>
 
     <Button
-
         android:background="@drawable/radius_shape"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
