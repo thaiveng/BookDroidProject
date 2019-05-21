@@ -1,5 +1,7 @@
 package com.example.bookdroidproject;
 
+import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -43,6 +45,7 @@ public class User_Profile_Activity extends AppCompatActivity {
 
 
         setUpNavigationView();
+        
 
     }
 
