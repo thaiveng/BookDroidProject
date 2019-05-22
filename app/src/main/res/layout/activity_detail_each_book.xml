@@ -198,7 +198,7 @@
                 android:id="@+id/edtSearch"
                 android:singleLine="true"
                 android:textColor="#000"
-                android:background="@drawable/style_edt_search"
+                android:background="@drawable/edt_style"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/imgSearch"
                 android:layout_width="match_parent"
