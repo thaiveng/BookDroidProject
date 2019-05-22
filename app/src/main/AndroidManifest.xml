@@ -17,13 +17,13 @@
         <activity android:name=".DetailEachBook" />
         <activity android:name=".Activity_Notifications" />
         <activity
-            android:name=".Activity_Posts"
+            android:name=".MainActivity"
             android:label="@string/title_activity__posts"
             android:theme="@style/NoActionBar" />
         <activity android:name=".Activity_Feeds" />
         <activity android:name=".Activity_sign_up" />
         <activity android:name=".SplashScreenActivity"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity_Posts">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
