@@ -12,6 +12,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
@@ -20,9 +22,12 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 
+import com.example.bookdroidproject.adapter.BooksAdapter;
 import com.example.bookdroidproject.adapter.PageAdapter;
+import com.example.bookdroidproject.model.BooksModel;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Activity_books extends AppCompatActivity {
@@ -40,6 +45,12 @@ public class Activity_books extends AppCompatActivity {
     private PageAdapter adapter;
 
     SearchView searchView;
+
+
+    private BooksModel booksModel;
+    private List<BooksModel> list;
+    private RecyclerView recyclerView;
+    private BooksAdapter booksAdapter;
 
 
     @Override
@@ -62,6 +73,29 @@ public class Activity_books extends AppCompatActivity {
 
 
         setUpNavigationView();
+
+        recyclerView = findViewById(R.id.recycler_home);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
+        list = new ArrayList<>();
+
+        booksModel = new BooksModel("title1",R.drawable.b1);
+        booksModel = new BooksModel("title1",R.drawable.b1);
+        booksModel = new BooksModel("title1",R.drawable.b1);
+        booksModel = new BooksModel("title1",R.drawable.b1);
+        booksModel = new BooksModel("title1",R.drawable.b1);
+        booksModel = new BooksModel("title1",R.drawable.b1);
+
+        list.add(booksModel);
+
+
+        booksAdapter = new BooksAdapter(this,list);
+
+        recyclerView.setAdapter(booksAdapter);
+
+
+
 
     }
 
@@ -89,6 +123,9 @@ public class Activity_books extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
+
+
+
 
 
 
