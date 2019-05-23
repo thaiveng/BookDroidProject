@@ -19,8 +19,20 @@
             android:id="@+id/toolBar">
 
         </include>
+        
+        <ScrollView
+            android:layout_below="@id/toolBar"
+            android:layout_above="@id/bottom_navigationView"
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <LinearLayout
+
+           android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
             android:layout_above="@id/bottom_navigationView"
             android:layout_below="@id/toolBar"
             android:orientation="vertical"
@@ -30,7 +42,7 @@
 
 
             <TextView
-                android:layout_marginTop="20dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:textSize="30sp"
                 android:textAlignment="center"
@@ -39,78 +51,214 @@
                 android:layout_height="wrap_content" />
 
 
-            <android.support.design.widget.TextInputLayout
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linear_titlebook"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:inputType="text"
-                    android:id="@+id/edt_titleBook_ScreenPosts"
-                    android:hint="title book"
+                <TextView
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Title Book"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-            </android.support.design.widget.TextInputLayout>
-
-            <Spinner
-                android:padding="20dp"
-                android:id="@+id/spinner_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </Spinner>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/edt_des_ScreenPosts"
-                    android:inputType="textMultiLine"
-                    android:hint="description"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp" />
+                    android:layout_height="wrap_content">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:background="@drawable/linearlayout_border"
+                        android:inputType="text"
+                        android:id="@+id/edt_titleBook_ScreenPosts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
 
 
             <LinearLayout
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Author"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:background="@drawable/linearlayout_border"
+                        android:inputType="text"
+                        android:id="@+id/edt_author_ScreenPosts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linear_category"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Choose Category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:background="@drawable/linearlayout_border"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/spinner_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </Spinner>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linear_description"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <EditText
+                        android:background="@drawable/linearlayout_border"
+                        android:id="@+id/edt_des_ScreenPosts"
+                        android:inputType="textMultiLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
                 android:id="@+id/sub_linear1_in_ScreenPosts"
-                android:background="@drawable/linearlayout_border"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
-
-
-                <ImageView
-                    android:id="@+id/img_post"
-                    android:src="@drawable/ic_image_black_24dp"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" />
-
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv_upload_img"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    android:text="Upload Image"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Choose Book Image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/linearlayout_border"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:scaleType="fitXY"
+                        android:id="@+id/img_post"
+                        android:src="@drawable/ic_image_black_24dp"
+                        android:layout_width="60dp"
+                        android:layout_height="80dp" />
+
+
+                    <TextView
+                        android:id="@+id/tv_upload_img"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:text="Upload Image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_marginBottom="40dp"
+                    android:background="@color/colorLogo"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:text="Save"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
 
 
-            <Button
-
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="140sp"
-                android:text="Save"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content" />
-
         </LinearLayout>
+
+
+    </ScrollView>
 
 
         <de.hdodenhof.circleimageview.CircleImageView

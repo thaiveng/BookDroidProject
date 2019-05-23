@@ -13,9 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.asksira.bsimagepicker.BSImagePicker;
@@ -25,7 +28,7 @@ import java.io.File;
 import java.util.List;
 
 public class Activity_Posts extends AppCompatActivity implements BSImagePicker.OnSingleImageSelectedListener,
-        BSImagePicker.OnMultiImageSelectedListener, BSImagePicker.ImageLoaderDelegate{
+        BSImagePicker.OnMultiImageSelectedListener, BSImagePicker.ImageLoaderDelegate, AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener {
 
     private ImageView imageView;
     private Button btnSelect;
@@ -39,6 +42,10 @@ public class Activity_Posts extends AppCompatActivity implements BSImagePicker.O
 
     private LinearLayout linearLayout;
 
+
+    private Spinner spinner;
+
+    private String[] cate = {"Mathematic","Mindset","Novel","Programming","Sport"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +79,20 @@ public class Activity_Posts extends AppCompatActivity implements BSImagePicker.O
         // call this method to make action when click on each icon of bottom navigation
         setActionBottomNavigationView();
 
+
+
+        spinner = findViewById(R.id.spinner_category);
+
+
+        spinner.setOnItemSelectedListener(this);
+
+        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_spinner_item,cate);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+        // settting arrray adapter in spinner
+        spinner.setAdapter(adapter);
 
     }
 
@@ -205,6 +226,25 @@ public class Activity_Posts extends AppCompatActivity implements BSImagePicker.O
 
             }
         };
+    }
+
+
+
+    // method when click each category item in spinner
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        Toast.makeText(getApplicationContext(),"Category " + cate[position] , Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(getApplicationContext(),"Category " + cate[position] , Toast.LENGTH_LONG).show();
     }
 }
 
