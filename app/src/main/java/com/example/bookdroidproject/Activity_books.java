@@ -19,6 +19,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -52,6 +54,10 @@ public class Activity_books extends AppCompatActivity {
     RecyclerView r1,r2;
     TextView tvRecommend,tvTrending;
     RelativeLayout rel1,rel2;
+
+    TabLayout tabLayout1;
+
+    LinearLayout linearLayout;
 
 
     @Override
@@ -161,7 +167,216 @@ public class Activity_books extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
-                viewPager.setCurrentItem(tab.getPosition());
+                int index = tab.getPosition();
+
+                switch (index){
+
+                    case 0:
+                        viewPager.setCurrentItem(index);
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.VISIBLE);
+                        r2.setVisibility(View.VISIBLE);
+
+                        tvTrending.setVisibility(View.VISIBLE);
+                        tvRecommend.setVisibility(View.VISIBLE);
+
+                        rel1.setVisibility(View.VISIBLE);
+                        rel2.setVisibility(View.VISIBLE);
+                        viewPager.setVisibility(View.VISIBLE);
+
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.VISIBLE);
+
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.VISIBLE);
+                        break;
+
+                    case 1:
+                        viewPager.setCurrentItem(index);
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.VISIBLE);
+                        r2.setVisibility(View.VISIBLE);
+
+                        tvTrending.setVisibility(View.VISIBLE);
+                        tvRecommend.setVisibility(View.VISIBLE);
+
+                        rel1.setVisibility(View.VISIBLE);
+                        rel2.setVisibility(View.VISIBLE);
+                        viewPager.setVisibility(View.VISIBLE);
+
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.VISIBLE);
+
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.VISIBLE);
+                        break;
+
+
+                    case 2:
+                        viewPager.setCurrentItem(index);
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.VISIBLE);
+                        r2.setVisibility(View.VISIBLE);
+
+                        tvTrending.setVisibility(View.VISIBLE);
+                        tvRecommend.setVisibility(View.VISIBLE);
+
+                        rel1.setVisibility(View.VISIBLE);
+                        rel2.setVisibility(View.VISIBLE);
+                        viewPager.setVisibility(View.VISIBLE);
+
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.VISIBLE);
+
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.VISIBLE);
+                        break;
+
+
+
+                    case 3:
+                        viewPager.setCurrentItem(index);
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.VISIBLE);
+                        r2.setVisibility(View.VISIBLE);
+
+                        tvTrending.setVisibility(View.VISIBLE);
+                        tvRecommend.setVisibility(View.VISIBLE);
+
+                        rel1.setVisibility(View.VISIBLE);
+                        rel2.setVisibility(View.VISIBLE);
+                        viewPager.setVisibility(View.VISIBLE);
+
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.VISIBLE);
+
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.VISIBLE);
+                        break;
+
+
+
+                    case 4:
+                        viewPager.setCurrentItem(index);
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.VISIBLE);
+                        r2.setVisibility(View.VISIBLE);
+
+                        tvTrending.setVisibility(View.VISIBLE);
+                        tvRecommend.setVisibility(View.VISIBLE);
+
+                        rel1.setVisibility(View.VISIBLE);
+                        rel2.setVisibility(View.VISIBLE);
+                        viewPager.setVisibility(View.VISIBLE);
+
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.VISIBLE);
+
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.VISIBLE);
+                        break;
+
+
+
+                    case 5:
+                        viewPager.setCurrentItem(index);
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.VISIBLE);
+                        r2.setVisibility(View.VISIBLE);
+
+                        tvTrending.setVisibility(View.VISIBLE);
+                        tvRecommend.setVisibility(View.VISIBLE);
+
+                        rel1.setVisibility(View.VISIBLE);
+                        rel2.setVisibility(View.VISIBLE);
+                        viewPager.setVisibility(View.VISIBLE);
+
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.VISIBLE);
+
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.VISIBLE);
+                        break;
+                }
+
             }
 
             @Override
@@ -204,7 +419,37 @@ public class Activity_books extends AppCompatActivity {
                 switch (menuItem.getItemId()){
 
                     case R.id.books:
-                        Toast.makeText(getApplicationContext(),"You are selected book icon",Toast.LENGTH_SHORT).show();
+
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.VISIBLE);
+                        r2.setVisibility(View.VISIBLE);
+
+                        tvTrending.setVisibility(View.VISIBLE);
+                        tvRecommend.setVisibility(View.VISIBLE);
+
+                        rel1.setVisibility(View.VISIBLE);
+                        rel2.setVisibility(View.VISIBLE);
+                        viewPager.setVisibility(View.VISIBLE);
+
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.VISIBLE);
+
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.VISIBLE);
+
                         return true;
 
 
@@ -227,6 +472,30 @@ public class Activity_books extends AppCompatActivity {
 
                         rel1.setVisibility(View.GONE);
                         rel2.setVisibility(View.GONE);
+                        viewPager.setVisibility(View.GONE);
+
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.VISIBLE);
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.GONE);
+
+                        ListView listView = findViewById(R.id.feed_list_view);
+
+                        listView.setVisibility(View.VISIBLE);
+
+
+
+//                        TabItem item1 = findViewById(R.id.tab_borrow);
+//                        TabItem item2 = findViewById(R.id.tab_buy);
+//
+//                        item1.setVisibility(View.GONE);
+//                        item2.setVisibility(View.GONE);
+
                         return true;
 
 
@@ -250,6 +519,18 @@ public class Activity_books extends AppCompatActivity {
                         rel1.setVisibility(View.GONE);
                         rel2.setVisibility(View.GONE);
 
+                        viewPager.setVisibility(View.GONE);
+
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.VISIBLE);
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.GONE);
+
                         return true;
 
 
@@ -272,6 +553,18 @@ public class Activity_books extends AppCompatActivity {
 
                         rel1.setVisibility(View.GONE);
                         rel2.setVisibility(View.GONE);
+
+                        viewPager.setVisibility(View.GONE);
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.GONE);
+
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.VISIBLE);
                         return true;
 
 
@@ -294,6 +587,17 @@ public class Activity_books extends AppCompatActivity {
 
                         rel1.setVisibility(View.GONE);
                         rel2.setVisibility(View.GONE);
+                        viewPager.setVisibility(View.GONE);
+
+                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
+
+                        tabLayout1.setVisibility(View.GONE);
+
+                        tabLayout.setVisibility(View.GONE);
+//
+                        linearLayout = findViewById(R.id.container_home);
+
+                        linearLayout.setVisibility(View.VISIBLE);
                         return true;
                 }
                 return false;
