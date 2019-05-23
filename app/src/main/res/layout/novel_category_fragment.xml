@@ -4,6 +4,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:text="Recomment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RelativeLayout
+                    android:id="@+id/all_books_click"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_marginTop="2dp"
+                            android:id="@+id/txt_all"
+                            android:layout_toLeftOf="@id/arrow_right"
+                            android:textAlignment="center"
+                            android:text="All"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_marginRight="10dp"
+                            android:id="@+id/arrow_right"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity=""
+                            android:background="#FFF"
+                            android:src="@drawable/ic_arrow_right" />
+                </RelativeLayout>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:orientation="horizontal"
+            android:id="@+id/recycler_home_reco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:text="Trending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RelativeLayout
+                    android:id="@+id/all_books_click_trending"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_marginTop="2dp"
+                            android:id="@+id/txt_all_trending"
+                            android:layout_toLeftOf="@id/arrow_right_trending"
+                            android:textAlignment="center"
+                            android:text="All"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_marginRight="10dp"
+                            android:id="@+id/arrow_right_trending"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity=""
+                            android:background="#FFF"
+                            android:src="@drawable/ic_arrow_right" />
+                </RelativeLayout>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:orientation="horizontal"
+            android:id="@+id/recycler_home_tre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+        </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
