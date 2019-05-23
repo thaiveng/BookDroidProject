@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -245,6 +246,25 @@ public class Activity_Posts extends AppCompatActivity implements BSImagePicker.O
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(getApplicationContext(),"Category " + cate[position] , Toast.LENGTH_LONG).show();
+    }
+
+
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_sell:
+                if (checked)
+                    Toast.makeText(getApplicationContext(),"Click sell ",Toast.LENGTH_SHORT).show();
+                    break;
+            case R.id.radio_borrow:
+                if (checked)
+                    Toast.makeText(getApplicationContext(),"Click borrow",Toast.LENGTH_SHORT).show();
+                    break;
+        }
     }
 }
 

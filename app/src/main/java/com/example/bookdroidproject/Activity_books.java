@@ -1,12 +1,12 @@
 package com.example.bookdroidproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -15,12 +15,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
-
 
 import com.example.bookdroidproject.adapter.BooksAdapter;
 import com.example.bookdroidproject.adapter.PageAdapter;
@@ -93,7 +90,6 @@ public class Activity_books extends AppCompatActivity {
         booksAdapter = new BooksAdapter(this,list);
 
         recyclerView.setAdapter(booksAdapter);
-
 
 
 
@@ -224,43 +220,46 @@ public class Activity_books extends AppCompatActivity {
 
     private void setActionBottomNavigationView(){
 
-         BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-                = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigationView);
 
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-                switch (item.getItemId()){
+                switch (menuItem.getItemId()){
 
                     case R.id.books:
-                        Toast.makeText(getApplicationContext(),"You are selected book icon",Toast.LENGTH_SHORT).show();
                         return true;
 
 
                     case R.id.feeds:
-                        Toast.makeText(getApplicationContext(),"You are selected feed icon",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Activity_books.this,Activity_Feeds.class);
+                        startActivity(intent);
                         return true;
 
 
                     case R.id.posts:
-                        Toast.makeText(getApplicationContext(),"You are selected posts icon",Toast.LENGTH_SHORT).show();
+                        Intent intent1 = new Intent(Activity_books.this,Activity_Posts.class);
+                        startActivity(intent1);
                         return true;
 
 
                     case R.id.notification:
-                        Toast.makeText(getApplicationContext(),"You are selected notification icon",Toast.LENGTH_SHORT).show();
+                        Intent intent2 = new Intent(Activity_books.this,Activity_Notifications.class);
+                        startActivity(intent2);
                         return true;
 
 
                     case R.id.store:
-                        Toast.makeText(getApplicationContext(),"You are selected store icon",Toast.LENGTH_SHORT).show();
+                        Intent intent3 = new Intent(Activity_books.this,Activity_Stores.class);
+                        startActivity(intent3);
                         return true;
                 }
-
                 return false;
-
             }
-        };
+        });
+
     }
 
 
