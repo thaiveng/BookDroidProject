@@ -1,36 +1,36 @@
 package com.example.bookdroidproject;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.example.bookdroidproject.adapter.BooksAdapter;
 import com.example.bookdroidproject.adapter.PageAdapter;
-import com.example.bookdroidproject.model.Booksmodel;
+import com.example.bookdroidproject.fragment.Feed_fragment;
+import com.example.bookdroidproject.fragment.Notification_fragment;
+import com.example.bookdroidproject.fragment.Post_fragment;
+import com.example.bookdroidproject.fragment.Store_fragement;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Activity_books extends AppCompatActivity {
@@ -48,6 +48,10 @@ public class Activity_books extends AppCompatActivity {
     private PageAdapter adapter;
 
     SearchView searchView;
+
+    RecyclerView r1,r2;
+    TextView tvRecommend,tvTrending;
+    RelativeLayout rel1,rel2;
 
 
     @Override
@@ -188,45 +192,121 @@ public class Activity_books extends AppCompatActivity {
 
     // set action to bottom navigation view
 
+    // set action to bottom navigation view
+
     private void setActionBottomNavigationView(){
 
-        BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-                = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
+        bottomNavigationView = findViewById(R.id.bottom_navigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-                switch (item.getItemId()){
+                switch (menuItem.getItemId()){
 
                     case R.id.books:
                         Toast.makeText(getApplicationContext(),"You are selected book icon",Toast.LENGTH_SHORT).show();
                         return true;
 
+
                     case R.id.feeds:
-                        Toast.makeText(getApplicationContext(),"You are selected feed icon",Toast.LENGTH_SHORT).show();
+                        loadFragment(new Feed_fragment());
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.GONE);
+                        r2.setVisibility(View.GONE);
+
+                        tvTrending.setVisibility(View.GONE);
+                        tvRecommend.setVisibility(View.GONE);
+
+                        rel1.setVisibility(View.GONE);
+                        rel2.setVisibility(View.GONE);
                         return true;
 
+
                     case R.id.posts:
-                        Toast.makeText(getApplicationContext(),"You are selected posts icon",Toast.LENGTH_SHORT).show();
+                        loadFragment(new Post_fragment());
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.GONE);
+                        r2.setVisibility(View.GONE);
+
+                        tvTrending.setVisibility(View.GONE);
+                        tvRecommend.setVisibility(View.GONE);
+
+                        rel1.setVisibility(View.GONE);
+                        rel2.setVisibility(View.GONE);
+
                         return true;
 
 
                     case R.id.notification:
-                        Toast.makeText(getApplicationContext(),"You are selected notification icon",Toast.LENGTH_SHORT).show();
+                        loadFragment(new Notification_fragment());
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.GONE);
+                        r2.setVisibility(View.GONE);
+
+                        tvTrending.setVisibility(View.GONE);
+                        tvRecommend.setVisibility(View.GONE);
+
+                        rel1.setVisibility(View.GONE);
+                        rel2.setVisibility(View.GONE);
                         return true;
 
 
                     case R.id.store:
-                        Toast.makeText(getApplicationContext(),"You are selected store icon",Toast.LENGTH_SHORT).show();
+                       loadFragment(new Store_fragement());
+                        r1 = findViewById(R.id.recycler_home_reco);
+                        r2 = findViewById(R.id.recycler_home_tre);
+
+                        tvRecommend = findViewById(R.id.tv_recommend);
+                        tvTrending = findViewById(R.id.tv_trending);
+
+                        rel1 = findViewById(R.id.all_books_click);
+                        rel2 = findViewById(R.id.all_books_click_trending);
+
+                        r1.setVisibility(View.GONE);
+                        r2.setVisibility(View.GONE);
+
+                        tvTrending.setVisibility(View.GONE);
+                        tvRecommend.setVisibility(View.GONE);
+
+                        rel1.setVisibility(View.GONE);
+                        rel2.setVisibility(View.GONE);
                         return true;
                 }
-
                 return false;
-
             }
-        };
+        });
+
     }
 
-
+    private void loadFragment(Fragment fragment){
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction tf = fm.beginTransaction();
+        tf.replace(R.id.container_home,fragment);
+        tf.commit();
+    }
 
 }
