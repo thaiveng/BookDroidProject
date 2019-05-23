@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView txtRegister;
+    TextView txtRegister,txtEmail,txtPassword;
     Button btnLogin;
 
     @Override
@@ -17,8 +17,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        txtEmail = findViewById(R.id.edit_text_email_login);
+        txtPassword = findViewById(R.id.edit_text_pwd);
         txtRegister = findViewById(R.id.txt_register);
         btnLogin = findViewById(R.id.btn_login);
+
+
+        Intent intent = new Intent(MainActivity.this, Activity_books.class);
+        startActivity(intent);
 
         txtRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String email = txtEmail.getText().toString();
+                String pwd = txtPassword.getText().toString();
                 Intent intent = new Intent(MainActivity.this, Activity_books.class);
                 startActivity(intent);
             }
