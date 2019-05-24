@@ -33,7 +33,7 @@
             android:layout_marginLeft="15dp"
             android:id="@+id/edit_text_email_login"
             android:singleLine="true"
-            android:hint="Username"
+            android:hint="Email"
             android:background="@null"
             android:layout_toRightOf="@id/img_user"
             android:layout_width="match_parent"

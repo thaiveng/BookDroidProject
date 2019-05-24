@@ -16,6 +16,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -499,6 +500,7 @@ public class Activity_books extends AppCompatActivity {
 
 
                     case R.id.posts:
+
                         loadFragment(new Post_fragment());
                         r1 = findViewById(R.id.recycler_home_reco);
                         r2 = findViewById(R.id.recycler_home_tre);
@@ -565,8 +567,8 @@ public class Activity_books extends AppCompatActivity {
 
                         linearLayout.setVisibility(View.VISIBLE);
                         return true;
-
-
+//
+//
                     case R.id.store:
                        loadFragment(new Store_fragement());
                         r1 = findViewById(R.id.recycler_home_reco);
