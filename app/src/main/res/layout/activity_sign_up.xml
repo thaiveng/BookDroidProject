@@ -74,12 +74,12 @@
         android:layout_height="38dp">
 
         <ImageView
+            android:src="@drawable/ic_phone"
             android:id="@+id/img_phone"
             android:layout_marginTop="4dp"
             android:layout_marginLeft="10dp"
             android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@color/colorLogo" />
+            android:layout_height="30dp" />
         <EditText
             android:layout_marginLeft="15dp"
             android:id="@+id/edit_text_phone"

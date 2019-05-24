@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/novel_home_fragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -16,29 +18,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <RelativeLayout
-                    android:id="@+id/all_books_click"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_marginTop="2dp"
-                            android:id="@+id/txt_all"
-                            android:layout_toLeftOf="@id/arrow_right"
-                            android:textAlignment="center"
-                            android:text="All"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <ImageView
-                            android:layout_marginRight="10dp"
-                            android:id="@+id/arrow_right"
+                        <LinearLayout
+                            android:id="@+id/all_books_click"
                             android:layout_alignParentRight="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity=""
-                            android:background="#FFF"
-                            android:src="@drawable/ic_arrow_right" />
+                            android:orientation="horizontal">
+                                <TextView
+                                    android:layout_marginTop="2dp"
+                                    android:id="@+id/txt_all"
+                                    android:layout_toLeftOf="@id/arrow_right"
+                                    android:textAlignment="center"
+                                    android:text="All"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <ImageView
+                                    android:id="@+id/arrow_right"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity=""
+                                    android:layout_marginRight="10dp"
+                                    android:background="#FFF"
+                                    android:src="@drawable/ic_arrow_right" />
+                        </LinearLayout>
+
+
                 </RelativeLayout>
 
         </LinearLayout>
@@ -64,29 +72,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <RelativeLayout
-                    android:id="@+id/all_books_click_trending"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_marginTop="2dp"
-                            android:id="@+id/txt_all_trending"
-                            android:layout_toLeftOf="@id/arrow_right_trending"
-                            android:textAlignment="center"
-                            android:text="All"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <ImageView
-                            android:layout_marginRight="10dp"
-                            android:id="@+id/arrow_right_trending"
+                        <LinearLayout
+                            android:id="@+id/all_books_click_trending"
+                            android:orientation="horizontal"
                             android:layout_alignParentRight="true"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity=""
-                            android:background="#FFF"
-                            android:src="@drawable/ic_arrow_right" />
+                            android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_marginTop="2dp"
+                                    android:id="@+id/txt_all_trending"
+                                    android:layout_toLeftOf="@id/arrow_right_trending"
+                                    android:textAlignment="center"
+                                    android:text="All"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <ImageView
+                                    android:layout_marginRight="10dp"
+                                    android:id="@+id/arrow_right_trending"
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity=""
+                                    android:background="#FFF"
+                                    android:src="@drawable/ic_arrow_right" />
+                        </LinearLayout>
+
+
                 </RelativeLayout>
 
         </LinearLayout>

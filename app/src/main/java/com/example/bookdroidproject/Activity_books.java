@@ -82,9 +82,6 @@ public class Activity_books extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
 
     }
-
-
-
     // method to find each element id
     private void initView(){
 
@@ -150,6 +147,8 @@ public class Activity_books extends AppCompatActivity {
         adapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
 
         viewPager.setAdapter(adapter);
+
+        viewPager.setOffscreenPageLimit(0);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 

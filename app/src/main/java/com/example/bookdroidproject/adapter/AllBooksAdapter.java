@@ -26,6 +26,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
         this.context = context;
     }
 
+
     @NonNull
     @Override
     public MyViewholder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.bookdroidproject.fragment.All_book_fragment;
 import com.example.bookdroidproject.fragment.Mathematic_category_fragment;
 import com.example.bookdroidproject.fragment.Mindset_category_fragment;
 import com.example.bookdroidproject.fragment.Novel_category_fragment;
