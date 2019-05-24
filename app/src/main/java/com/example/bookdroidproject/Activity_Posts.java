@@ -1,20 +1,143 @@
 package com.example.bookdroidproject;
 
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.Spinner;
+import android.widget.Toast;
 
-public class Activity_Posts extends AppCompatActivity {
+import com.asksira.bsimagepicker.BSImagePicker;
+import com.bumptech.glide.Glide;
+
+import java.io.File;
+import java.util.List;
+
+public class Activity_Posts extends AppCompatActivity implements BSImagePicker.OnSingleImageSelectedListener,
+        BSImagePicker.OnMultiImageSelectedListener, BSImagePicker.ImageLoaderDelegate, AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener {
+
+    private ImageView imageView;
+    private Button btnSelect;
+
+
+    private DrawerLayout drawerLayout;
+    private Toolbar toolbar;
+    private NavigationView navigationView;
+    private BottomNavigationView bottomNavigationView;
+    private ActionBarDrawerToggle toggle;
+
+    private LinearLayout linearLayout;
+
+
+    private Spinner spinner;
+
+    private String[] cate = {"Mathematic","Mindset","Novel","Programming","Sport"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts);
 
+        imageView = findViewById(R.id.img_post);
+        linearLayout = findViewById(R.id.sub_linear1_in_ScreenPosts);
+
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BSImagePicker pickerDialog = new BSImagePicker.Builder("com.asksira.imagepickersheetdemo.fileprovider")
+                        .build();
+                pickerDialog.show(getSupportFragmentManager(), "picker");
+            }
+        });
+
+
+
+        bottomNavigationView = findViewById(R.id.bottom_navigationView);
+
+
+
+
+        spinner = findViewById(R.id.spinner_category);
+
+
+        spinner.setOnItemSelectedListener(this);
+
+        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_spinner_item,cate);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+        // settting arrray adapter in spinner
+        spinner.setAdapter(adapter);
 
     }
 
+    @Override
+    public void onSingleImageSelected(Uri uri, String tag) {
+        Glide.with(Activity_Posts.this).load(uri).into(imageView);
+    }
+
+    @Override
+    public void onMultiImageSelected(List<Uri> uriList, String tag) {
+
+    }
+
+    @Override
+    public void loadImage(File imageFile, ImageView ivImage) {
+        Glide.with(Activity_Posts.this).load(imageFile).into(ivImage);
+    }
+
+
+
+
+
+    // method when click each category item in spinner
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        Toast.makeText(getApplicationContext(),"Category " + cate[position] , Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(getApplicationContext(),"Category " + cate[position] , Toast.LENGTH_LONG).show();
+    }
+
+
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_sell:
+                if (checked)
+                    Toast.makeText(getApplicationContext(),"Click sell ",Toast.LENGTH_SHORT).show();
+                    break;
+            case R.id.radio_borrow:
+                if (checked)
+                    Toast.makeText(getApplicationContext(),"Click borrow",Toast.LENGTH_SHORT).show();
+                    break;
+        }
+    }
+
 }
+

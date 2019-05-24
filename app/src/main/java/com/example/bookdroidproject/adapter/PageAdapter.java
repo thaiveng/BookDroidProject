@@ -1,8 +1,14 @@
 package com.example.bookdroidproject.adapter;
 
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.bookdroidproject.fragment.All_book_fragment;
 import com.example.bookdroidproject.fragment.Mathematic_category_fragment;
@@ -13,6 +19,16 @@ import com.example.bookdroidproject.fragment.Sport_category_fragment;
 import com.example.bookdroidproject.fragment.Tourist_category_fragment;
 
 public class PageAdapter extends FragmentPagerAdapter {
+
+
+    ViewPager viewPager;
+    RecyclerView r1,r2;
+    TextView tvRecommend,tvTrending;
+    RelativeLayout rel1,rel2;
+
+    TabLayout tabLayout1;
+
+    LinearLayout linearLayout;
 
     int numTab;
     public PageAdapter(FragmentManager fm, int numTab) {
