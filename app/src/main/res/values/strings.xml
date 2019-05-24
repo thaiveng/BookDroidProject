@@ -3,4 +3,7 @@
     <string name="opened_menu">Opened</string>
     <string name="closed_menu">Closed</string>
     <string name="title_activity__posts">Activity_Posts</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

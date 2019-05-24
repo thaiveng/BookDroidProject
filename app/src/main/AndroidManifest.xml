@@ -20,7 +20,6 @@
             android:name=".Activity_Posts"
             android:label="@string/title_activity__posts"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".Activity_Feeds" />
         <activity android:name=".Activity_sign_up" />
         <activity android:name=".SplashScreenActivity"/>
         <activity android:name=".MainActivity">
