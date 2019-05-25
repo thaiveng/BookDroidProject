@@ -26,7 +26,7 @@ public class Feed_fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity__feeds,container,false);
+        View v = inflater.inflate(R.layout.feeds_fragment,container,false);
 
 
         List<FeedModel> model_list = new ArrayList<>();

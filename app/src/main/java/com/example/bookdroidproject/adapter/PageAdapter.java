@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.bookdroidproject.fragment.All_book_fragment;
 import com.example.bookdroidproject.fragment.Mathematic_category_fragment;
 import com.example.bookdroidproject.fragment.Mindset_category_fragment;
 import com.example.bookdroidproject.fragment.Novel_category_fragment;

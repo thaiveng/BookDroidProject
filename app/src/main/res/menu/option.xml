@@ -8,6 +8,7 @@
         >
 
         <item
+            android:icon="@drawable/ic_user_profile_24dp"
             android:id="@+id/item_profile"
             android:title="Profile"
             app:showAsAction="never"
@@ -46,6 +47,87 @@
     </group>
 
 
+
+    <group
+    android:checkableBehavior="single"
+    >
+
+        <item
+            android:icon="@drawable/ic_books"
+            android:id="@+id/item_all_book"
+            android:title="All Book"
+            app:showAsAction="never"
+            >
+        </item>
+
+    </group>
+
+
+
+    <group
+        android:checkableBehavior="single"
+        >
+
+        <item
+            android:icon="@drawable/ic_feeds"
+            android:id="@+id/item_feed_book"
+            android:title="Feed"
+            app:showAsAction="never"
+            >
+        </item>
+
+    </group>
+
+
+
+    <group
+        android:checkableBehavior="single"
+        >
+
+        <item
+            android:icon="@drawable/ic_add"
+            android:id="@+id/item_post"
+            android:title="Post Book"
+            app:showAsAction="never"
+            >
+        </item>
+
+    </group>
+
+
+
+    <group
+        android:checkableBehavior="single"
+        >
+
+        <item
+            android:icon="@drawable/ic_notifications"
+            android:id="@+id/item_notification"
+            android:title="Notification"
+            app:showAsAction="never"
+            >
+        </item>
+
+    </group>
+
+
+
+    <group
+        android:checkableBehavior="single"
+        >
+
+        <item
+            android:icon="@drawable/ic_store"
+            android:id="@+id/item_store"
+            android:title="Store"
+            app:showAsAction="never"
+            >
+        </item>
+
+    </group>
+
+
+
     <group
         android:checkableBehavior="single"
         >
@@ -59,6 +141,7 @@
         </item>
 
     </group>
+
 
 
 

@@ -14,9 +14,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,13 +29,17 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bookdroidproject.adapter.BooksAdapter;
 import com.example.bookdroidproject.adapter.PageAdapter;
+import com.example.bookdroidproject.fragment.BookFragment;
 import com.example.bookdroidproject.fragment.Feed_fragment;
 import com.example.bookdroidproject.fragment.Notification_fragment;
 import com.example.bookdroidproject.fragment.Post_fragment;
 import com.example.bookdroidproject.fragment.Store_fragement;
+import com.example.bookdroidproject.model.Booksmodel;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Activity_books extends AppCompatActivity {
@@ -50,21 +56,43 @@ public class Activity_books extends AppCompatActivity {
     private ActionBarDrawerToggle toggle;
     private PageAdapter adapter;
 
-    SearchView searchView;
 
-    RecyclerView r1,r2;
-    TextView tvRecommend,tvTrending;
-    RelativeLayout rel1,rel2;
 
-    TabLayout tabLayout1;
+    RecyclerView recyclerViewHome,recyclerViewHometrend;
+    BooksAdapter adapterBooks;
+    List<Booksmodel> booksmodelList,booksmodelList1;
+    LinearLayout btnAll,btnAllTrend;
 
-    LinearLayout linearLayout;
+
+    LinearLayout linearLayout_containter_home;
+
+
+
+    // declare variable to show or hide view
+    LinearLayout linearLayout_container_book_home;
+    ViewPager viewPager_eacbtab;
+    LinearLayout linearLayout_recommend;
+    LinearLayout linearLayout_trending;
+    RecyclerView recyclerView_reco;
+    RecyclerView recyclerView_tre;
+    TabLayout tab_btnBorrow_btnBuy;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
+
+
+        linearLayout_containter_home = findViewById(R.id.container_home);
+
+        linearLayout_container_book_home = findViewById(R.id.container_book_fragment);
+        linearLayout_recommend = findViewById(R.id.linear_recommend);
+        linearLayout_trending = findViewById(R.id.linear_trending);
+        viewPager_eacbtab = findViewById(R.id.view_pager);
+        recyclerView_reco = findViewById(R.id.recycler_home_reco);
+        recyclerView_tre = findViewById(R.id.recycler_home_tre);
+        tab_btnBorrow_btnBuy = findViewById(R.id.tab_layout_secondary);
 
 
         // call this method to find id of each element
@@ -75,10 +103,46 @@ public class Activity_books extends AppCompatActivity {
         // call this method to make action when click on each tab
         setUpViewPager();
 
-        // call this method to make action when click on each icon of bottom navigation
-        setActionBottomNavigationView();
 
         setUpNavigationView();
+
+
+
+        booksmodelList = new ArrayList<Booksmodel>();
+        booksmodelList1 = new ArrayList<Booksmodel>();
+
+        btnAll = findViewById(R.id.all_books_click);
+        btnAllTrend = findViewById(R.id.all_books_click_trending);
+        recyclerViewHome = findViewById(R.id.recycler_home_reco);
+        recyclerViewHometrend = findViewById(R.id.recycler_home_tre);
+
+        recyclerViewHome.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false));
+
+        for(int i=0;i<10;i++)
+        {
+            Booksmodel model = new Booksmodel();
+            model.setImg_book(R.drawable.book);
+            model.setTitle("Book "+i);
+            booksmodelList.add(model);
+
+        }
+
+        adapterBooks = new BooksAdapter(booksmodelList,getApplicationContext());
+        recyclerViewHome.setAdapter(adapterBooks);
+
+
+        recyclerViewHometrend.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false));
+
+        for(int i=0;i<10;i++)
+        {
+            Booksmodel model1 = new Booksmodel();
+            model1.setImg_book(R.drawable.book);
+            model1.setTitle("Book "+i+i);
+            booksmodelList1.add(model1);
+        }
+
+        adapterBooks = new BooksAdapter(booksmodelList1,getApplicationContext());
+        recyclerViewHometrend.setAdapter(adapterBooks);
 
     }
 
@@ -118,24 +182,102 @@ public class Activity_books extends AppCompatActivity {
                 switch (menuItem.getItemId()){
 
                     case R.id.item_profile:
-                        Toast.makeText(getApplicationContext(),"You are selected profile",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"You are selected profile item",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
 
                     case R.id.item_about_us:
+                        linearLayout_containter_home.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
+                        tab_btnBorrow_btnBuy.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),"You are selected about us",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
 
                     case R.id.item_term_of_use:
+
+                        linearLayout_containter_home.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
+                        tab_btnBorrow_btnBuy.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),"You are selected term of use",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
 
                     case R.id.item_signout:
+                        linearLayout_containter_home.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
+                        tab_btnBorrow_btnBuy.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),"You are selected signout",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
+
+
+                    case R.id.item_all_book:
+
+                        linearLayout_container_book_home.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
+                        loadFragmentBook(new BookFragment());
+                        drawerLayout.closeDrawers();
+                        return true;
+
+
+                    case R.id.item_feed_book:
+                        linearLayout_containter_home.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
+                        tab_btnBorrow_btnBuy.setVisibility(View.GONE);
+                        Toast.makeText(getApplicationContext(),"You are selected feed item",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        return true;
+
+
+                    case R.id.item_post:
+                        linearLayout_containter_home.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
+                        tab_btnBorrow_btnBuy.setVisibility(View.GONE);
+                       loadFragment(new Post_fragment());
+                        drawerLayout.closeDrawers();
+                        return true;
+
+                    case R.id.item_notification:
+                        linearLayout_containter_home.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
+                        tab_btnBorrow_btnBuy.setVisibility(View.GONE);
+                        Toast.makeText(getApplicationContext(),"You are selected notification item",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        return true;
+
+                    case R.id.item_store:
+                        linearLayout_containter_home.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
+                        tab_btnBorrow_btnBuy.setVisibility(View.GONE);
+                        Toast.makeText(getApplicationContext(),"You are selected store item",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        return true;
+
                 }
 
                 return false;
@@ -173,207 +315,64 @@ public class Activity_books extends AppCompatActivity {
 
                     case 0:
                         viewPager.setCurrentItem(index);
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
+                        viewPager_eacbtab.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
 
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.VISIBLE);
-                        r2.setVisibility(View.VISIBLE);
-
-                        tvTrending.setVisibility(View.VISIBLE);
-                        tvRecommend.setVisibility(View.VISIBLE);
-
-                        rel1.setVisibility(View.VISIBLE);
-                        rel2.setVisibility(View.VISIBLE);
-                        viewPager.setVisibility(View.VISIBLE);
-
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.VISIBLE);
-
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.VISIBLE);
                         break;
 
                     case 1:
                         viewPager.setCurrentItem(index);
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
-
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.VISIBLE);
-                        r2.setVisibility(View.VISIBLE);
-
-                        tvTrending.setVisibility(View.VISIBLE);
-                        tvRecommend.setVisibility(View.VISIBLE);
-
-                        rel1.setVisibility(View.VISIBLE);
-                        rel2.setVisibility(View.VISIBLE);
-                        viewPager.setVisibility(View.VISIBLE);
-
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.VISIBLE);
-
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.VISIBLE);
+                        viewPager_eacbtab.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
                         break;
 
 
                     case 2:
                         viewPager.setCurrentItem(index);
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
-
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.VISIBLE);
-                        r2.setVisibility(View.VISIBLE);
-
-                        tvTrending.setVisibility(View.VISIBLE);
-                        tvRecommend.setVisibility(View.VISIBLE);
-
-                        rel1.setVisibility(View.VISIBLE);
-                        rel2.setVisibility(View.VISIBLE);
-                        viewPager.setVisibility(View.VISIBLE);
-
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.VISIBLE);
-
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.VISIBLE);
+                        viewPager_eacbtab.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
                         break;
 
 
 
                     case 3:
                         viewPager.setCurrentItem(index);
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
-
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.VISIBLE);
-                        r2.setVisibility(View.VISIBLE);
-
-                        tvTrending.setVisibility(View.VISIBLE);
-                        tvRecommend.setVisibility(View.VISIBLE);
-
-                        rel1.setVisibility(View.VISIBLE);
-                        rel2.setVisibility(View.VISIBLE);
-                        viewPager.setVisibility(View.VISIBLE);
-
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.VISIBLE);
-
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.VISIBLE);
+                        viewPager_eacbtab.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
                         break;
 
 
 
                     case 4:
                         viewPager.setCurrentItem(index);
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
-
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.VISIBLE);
-                        r2.setVisibility(View.VISIBLE);
-
-                        tvTrending.setVisibility(View.VISIBLE);
-                        tvRecommend.setVisibility(View.VISIBLE);
-
-                        rel1.setVisibility(View.VISIBLE);
-                        rel2.setVisibility(View.VISIBLE);
-                        viewPager.setVisibility(View.VISIBLE);
-
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.VISIBLE);
-
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.VISIBLE);
+                        viewPager_eacbtab.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
                         break;
 
 
 
                     case 5:
                         viewPager.setCurrentItem(index);
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
-
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.VISIBLE);
-                        r2.setVisibility(View.VISIBLE);
-
-                        tvTrending.setVisibility(View.VISIBLE);
-                        tvRecommend.setVisibility(View.VISIBLE);
-
-                        rel1.setVisibility(View.VISIBLE);
-                        rel2.setVisibility(View.VISIBLE);
-                        viewPager.setVisibility(View.VISIBLE);
-
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.VISIBLE);
-
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.VISIBLE);
+                        viewPager_eacbtab.setVisibility(View.VISIBLE);
+                        linearLayout_recommend.setVisibility(View.GONE);
+                        linearLayout_trending.setVisibility(View.GONE);
+                        recyclerView_reco.setVisibility(View.GONE);
+                        recyclerView_tre.setVisibility(View.GONE);
                         break;
                 }
 
@@ -392,6 +391,14 @@ public class Activity_books extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.option_tool_bar,menu);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -405,213 +412,22 @@ public class Activity_books extends AppCompatActivity {
     }
 
 
-    // set action to bottom navigation view
 
-    // set action to bottom navigation view
-
-    private void setActionBottomNavigationView(){
-
-        bottomNavigationView = findViewById(R.id.bottom_navigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-                switch (menuItem.getItemId()){
-
-                    case R.id.books:
-
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
-
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.VISIBLE);
-                        r2.setVisibility(View.VISIBLE);
-
-                        tvTrending.setVisibility(View.VISIBLE);
-                        tvRecommend.setVisibility(View.VISIBLE);
-
-                        rel1.setVisibility(View.VISIBLE);
-                        rel2.setVisibility(View.VISIBLE);
-                        viewPager.setVisibility(View.VISIBLE);
-
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.VISIBLE);
-
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.VISIBLE);
-
-                        return true;
-
-
-                    case R.id.feeds:
-                        loadFragment(new Feed_fragment());
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
-
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.GONE);
-                        r2.setVisibility(View.GONE);
-
-                        tvTrending.setVisibility(View.GONE);
-                        tvRecommend.setVisibility(View.GONE);
-
-                        rel1.setVisibility(View.GONE);
-                        rel2.setVisibility(View.GONE);
-                        viewPager.setVisibility(View.GONE);
-
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.VISIBLE);
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.GONE);
-
-                        ListView listView = findViewById(R.id.feed_list_view);
-
-                        listView.setVisibility(View.VISIBLE);
-
-
-
-//                        TabItem item1 = findViewById(R.id.tab_borrow);
-//                        TabItem item2 = findViewById(R.id.tab_buy);
-//
-//                        item1.setVisibility(View.GONE);
-//                        item2.setVisibility(View.GONE);
-
-                        return true;
-
-
-                    case R.id.posts:
-
-                        loadFragment(new Post_fragment());
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
-
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.GONE);
-                        r2.setVisibility(View.GONE);
-
-                        tvTrending.setVisibility(View.GONE);
-                        tvRecommend.setVisibility(View.GONE);
-
-                        rel1.setVisibility(View.GONE);
-                        rel2.setVisibility(View.GONE);
-
-                        viewPager.setVisibility(View.GONE);
-
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.VISIBLE);
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.GONE);
-
-                        return true;
-
-
-                    case R.id.notification:
-                        loadFragment(new Notification_fragment());
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
-
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.GONE);
-                        r2.setVisibility(View.GONE);
-
-                        tvTrending.setVisibility(View.GONE);
-                        tvRecommend.setVisibility(View.GONE);
-
-                        rel1.setVisibility(View.GONE);
-                        rel2.setVisibility(View.GONE);
-
-                        viewPager.setVisibility(View.GONE);
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.GONE);
-
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.VISIBLE);
-                        return true;
-//
-//
-                    case R.id.store:
-                       loadFragment(new Store_fragement());
-                        r1 = findViewById(R.id.recycler_home_reco);
-                        r2 = findViewById(R.id.recycler_home_tre);
-
-                        tvRecommend = findViewById(R.id.tv_recommend);
-                        tvTrending = findViewById(R.id.tv_trending);
-
-                        rel1 = findViewById(R.id.all_books_click);
-                        rel2 = findViewById(R.id.all_books_click_trending);
-
-                        r1.setVisibility(View.GONE);
-                        r2.setVisibility(View.GONE);
-
-                        tvTrending.setVisibility(View.GONE);
-                        tvRecommend.setVisibility(View.GONE);
-
-                        rel1.setVisibility(View.GONE);
-                        rel2.setVisibility(View.GONE);
-                        viewPager.setVisibility(View.GONE);
-
-                        tabLayout1 = findViewById(R.id.tab_layout_secondary);
-
-                        tabLayout1.setVisibility(View.GONE);
-
-                        tabLayout.setVisibility(View.GONE);
-//
-                        linearLayout = findViewById(R.id.container_home);
-
-                        linearLayout.setVisibility(View.VISIBLE);
-                        return true;
-                }
-                return false;
-            }
-        });
-
-    }
 
     private void loadFragment(Fragment fragment){
         FragmentManager fm = getFragmentManager();
         FragmentTransaction tf = fm.beginTransaction();
         tf.replace(R.id.container_home,fragment);
         tf.commit();
+    }
+
+
+    private void loadFragmentBook(Fragment fragment){
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction tf = fm.beginTransaction();
+        tf.replace(R.id.container_home,fragment);
+        tf.commit();
+
     }
 
 }

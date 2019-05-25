@@ -15,7 +15,7 @@ public class Store_fragement extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity__stores,container,false);
+        View v = inflater.inflate(R.layout.stores_fragment,container,false);
         return v;
     }
 }

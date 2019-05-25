@@ -15,8 +15,8 @@
         android:layout_height="match_parent">
 
         <include
-            layout="@layout/tool_bar"
-            android:id="@+id/toolBar">
+            android:id="@+id/toolBar"
+            layout="@layout/tool_bar">
 
         </include>
 
@@ -31,7 +31,7 @@
 
             <LinearLayout
                 android:padding="10dp"
-                android:background="@color/colorBackground"
+                android:background="#BCBFCC"
                 android:orientation="horizontal"
                 android:id="@+id/sub_linear1_in_ScreenEditProfile"
                 android:layout_width="match_parent"
@@ -246,53 +246,6 @@
 
 
         </LinearLayout>
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_marginTop="8dp"
-            android:layout_toRightOf="@id/rel_searchview"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
-            android:layout_width="40dp"
-            android:layout_height="35dp"
-            android:src="@drawable/ic_person_black_24dp"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#D5D7F3"/>
-
-
-
-        <RelativeLayout
-            android:id="@+id/rel_searchview"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="50dp"
-            android:background="#FFF"
-            android:layout_width="250dp"
-            android:layout_height="25dp">
-
-
-            <ImageView
-                android:id="@+id/imgSearch"
-                android:src="@drawable/ic_search_black_24dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
-
-
-
-            <EditText
-                android:hint="Search book"
-                android:id="@+id/edtSearch"
-                android:singleLine="true"
-                android:textColor="#000"
-                android:background="@drawable/radius_shape"
-                android:layout_marginLeft="5dp"
-                android:layout_toRightOf="@id/imgSearch"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </RelativeLayout>
-
 
 
 

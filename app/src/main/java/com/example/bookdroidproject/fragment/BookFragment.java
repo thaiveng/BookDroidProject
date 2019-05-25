@@ -1,14 +1,18 @@
 package com.example.bookdroidproject.fragment;
 
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+
+import android.app.Fragment;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.bookdroidproject.R;
 import com.example.bookdroidproject.adapter.BooksAdapter;
@@ -17,23 +21,29 @@ import com.example.bookdroidproject.model.Booksmodel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class All_book_fragment extends Fragment {
+public class BookFragment extends Fragment {
+
     RecyclerView recyclerViewHome,recyclerViewHometrend;
     BooksAdapter adapterBooks;
     List<Booksmodel> booksmodelList,booksmodelList1;
+    LinearLayout btnAll,btnAllTrend;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.all_book_fragment,container,false);
+        View view = inflater.inflate(R.layout.book_fragment,container,false);
+
+
         booksmodelList = new ArrayList<Booksmodel>();
-//        booksmodelList1 = new ArrayList<Booksmodel>();
+        booksmodelList1 = new ArrayList<Booksmodel>();
 
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        recyclerViewHome = view.findViewById(R.id.recycler_all_book);
-//        recyclerViewHometrend = view.findViewById(R.id.recycler_home_tre);
-//        recyclerViewHome.setHasFixedSize(true);
+        btnAll = view.findViewById(R.id.all_books_click);
+        btnAllTrend = view.findViewById(R.id.all_books_click_trending);
+        recyclerViewHome = view.findViewById(R.id.recycler_home_reco);
+        recyclerViewHometrend = view.findViewById(R.id.recycler_home_tre);
 
-//        recyclerViewHome.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        recyclerViewHome.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
 
         for(int i=0;i<10;i++)
         {
@@ -48,19 +58,21 @@ public class All_book_fragment extends Fragment {
         recyclerViewHome.setAdapter(adapterBooks);
 
 
-//        recyclerViewHometrend.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        recyclerViewHometrend.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
 
-//        for(int i=0;i<10;i++)
-//        {
-//            Booksmodel model1 = new Booksmodel();
-//            model1.setImg_book(R.drawable.book);
-//            model1.setTitle("Book "+i+i);
-//            booksmodelList1.add(model1);
-//        }
-//
-//        adapterBooks = new BooksAdapter(booksmodelList1,getActivity());
-//        recyclerViewHometrend.setAdapter(adapterBooks);
+        for(int i=0;i<10;i++)
+        {
+            Booksmodel model1 = new Booksmodel();
+            model1.setImg_book(R.drawable.book);
+            model1.setTitle("Book "+i+i);
+            booksmodelList1.add(model1);
+        }
+
+        adapterBooks = new BooksAdapter(booksmodelList1,getActivity());
+        recyclerViewHometrend.setAdapter(adapterBooks);
 
         return view;
     }
+
+
 }
