@@ -1,30 +1,29 @@
 package com.example.bookdroidproject.model;
 
-public class Booksmodel {
-    private String title;
-    private int img_book;
+public class BooksModel {
 
-    public Booksmodel() {
+    private String title_book;
+    private int imgID;
+
+    public BooksModel(String title_book, int imgID) {
+        this.title_book = title_book;
+        this.imgID = imgID;
     }
 
-    public Booksmodel(String title, int img_book) {
-        this.title = title;
-        this.img_book = img_book;
+
+    public String getTitle_book() {
+        return title_book;
     }
 
-    public String getTitle() {
-        return title;
+    public void setTitle_book(String title_book) {
+        this.title_book = title_book;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public int getImgID() {
+        return imgID;
     }
 
-    public int getImg_book() {
-        return img_book;
-    }
-
-    public void setImg_book(int img_book) {
-        this.img_book = img_book;
+    public void setImgID(int imgID) {
+        this.imgID = imgID;
     }
 }
