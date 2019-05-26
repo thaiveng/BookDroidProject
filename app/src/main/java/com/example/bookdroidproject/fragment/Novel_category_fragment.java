@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,9 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.example.bookdroidproject.Activity_books;
 import com.example.bookdroidproject.R;
-import com.example.bookdroidproject.adapter.AllBooksAdapter;
 import com.example.bookdroidproject.adapter.BooksAdapter;
 import com.example.bookdroidproject.model.Booksmodel;
 
@@ -59,7 +56,7 @@ public class Novel_category_fragment extends Fragment {
         for(int i=0;i<10;i++)
         {
             Booksmodel model = new Booksmodel();
-            model.setImg_book(R.drawable.book);
+            model.setImg_book(R.drawable.novel_book);
             model.setTitle("Book "+i);
             booksmodelList.add(model);
 
@@ -74,7 +71,7 @@ public class Novel_category_fragment extends Fragment {
         for(int i=0;i<10;i++)
         {
             Booksmodel model1 = new Booksmodel();
-            model1.setImg_book(R.drawable.book);
+            model1.setImg_book(R.drawable.novel_book);
             model1.setTitle("Book "+i+i);
             booksmodelList1.add(model1);
         }

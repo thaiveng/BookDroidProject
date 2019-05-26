@@ -38,7 +38,7 @@ public class Mindset_category_fragment extends Fragment {
         for(int i=0;i<10;i++)
         {
             Booksmodel model = new Booksmodel();
-            model.setImg_book(R.drawable.book);
+            model.setImg_book(R.drawable.b6);
             model.setTitle("Book "+i);
             booksmodelList.add(model);
 
@@ -53,7 +53,7 @@ public class Mindset_category_fragment extends Fragment {
         for(int i=0;i<10;i++)
         {
             Booksmodel model1 = new Booksmodel();
-            model1.setImg_book(R.drawable.book);
+            model1.setImg_book(R.drawable.b6);
             model1.setTitle("Book "+i+i);
             booksmodelList1.add(model1);
         }

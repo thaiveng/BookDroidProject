@@ -156,27 +156,27 @@ public class User_Following_Activity extends AppCompatActivity {
 
                 switch (item.getItemId()){
 
-                    case R.id.books:
+                    case R.id.item_all_book:
                         Toast.makeText(getApplicationContext(),"You are selected book icon",Toast.LENGTH_SHORT).show();
                         return true;
 
 
-                    case R.id.feeds:
+                    case R.id.item_feed_book:
                         Toast.makeText(getApplicationContext(),"You are selected feed icon",Toast.LENGTH_SHORT).show();
                         return true;
 
 
-                    case R.id.posts:
+                    case R.id.item_post:
                         Toast.makeText(getApplicationContext(),"You are selected posts icon",Toast.LENGTH_SHORT).show();
                         return true;
 
 
-                    case R.id.notification:
+                    case R.id.item_notification:
                         Toast.makeText(getApplicationContext(),"You are selected notification icon",Toast.LENGTH_SHORT).show();
                         return true;
 
 
-                    case R.id.store:
+                    case R.id.item_store:
                         Toast.makeText(getApplicationContext(),"You are selected store icon",Toast.LENGTH_SHORT).show();
                         return true;
                 }

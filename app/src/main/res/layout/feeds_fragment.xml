@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
     android:orientation="vertical">
 
-    <ListView
+    <TextView
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:text="Feed Fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/feed_list_view">
-    </ListView>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

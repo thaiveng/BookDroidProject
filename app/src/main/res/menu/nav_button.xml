@@ -4,48 +4,82 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <item
-        android:id="@+id/books"
-        android:title="Books"
-        android:icon="@drawable/ic_books"
-        app:showAsAction="never"
+    <group
+        android:checkableBehavior="single"
         >
-    </item>
+
+        <item
+            android:icon="@drawable/ic_books"
+            android:id="@+id/item_all_book"
+            android:title="Book"
+            app:showAsAction="never"
+            >
+        </item>
+
+    </group>
 
 
-    <item
-        android:id="@+id/feeds"
-        android:title="Feeds"
-        app:showAsAction="never"
-        android:icon="@drawable/ic_feeds"
+
+    <group
+        android:checkableBehavior="single"
         >
-    </item>
+
+        <item
+            android:icon="@drawable/ic_feeds"
+            android:id="@+id/item_feed_book"
+            android:title="Feed"
+            app:showAsAction="never"
+            >
+        </item>
+
+    </group>
 
 
-    <item
-        android:id="@+id/posts"
-        android:icon="@drawable/ic_add"
-        android:title="Posts"
-        app:showAsAction="never"
+
+    <group
+        android:checkableBehavior="single"
         >
-    </item>
+
+        <item
+            android:icon="@drawable/ic_add"
+            android:id="@+id/item_post"
+            android:title="Post Book"
+            app:showAsAction="never"
+            >
+        </item>
+
+    </group>
 
 
-    <item
-        android:icon="@drawable/ic_notifications"
-        android:id="@+id/notification"
-        android:title="Notification"
-        app:showAsAction="never"
+
+    <group
+        android:checkableBehavior="single"
         >
-    </item>
+
+        <item
+            android:icon="@drawable/ic_notifications"
+            android:id="@+id/item_notification"
+            android:title="Notification"
+            app:showAsAction="never"
+            >
+        </item>
+
+    </group>
 
 
-    <item
-        android:icon="@drawable/ic_store"
-        android:id="@+id/store"
-        android:title="Store"
-        app:showAsAction="never"
 
+    <group
+        android:checkableBehavior="single"
         >
-    </item>
+
+        <item
+            android:icon="@drawable/ic_store"
+            android:id="@+id/item_store"
+            android:title="Store"
+            app:showAsAction="never"
+            >
+        </item>
+
+    </group>
+
 </menu>

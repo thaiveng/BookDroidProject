@@ -69,31 +69,34 @@
 
 
 
-        <android.support.design.widget.TabLayout
-
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_marginTop="20dp"
             android:layout_centerInParent="true"
             android:layout_below="@id/tab_layout"
-            app:tabGravity="fill"
-            app:tabBackground="@drawable/selected_color"
             android:id="@+id/tab_layout_secondary"
             android:layout_width="200dp"
             android:layout_height="30dp"
-            tools:ignore="MissingConstraints">
+           >
 
-            <android.support.design.widget.TabItem
-                android:id="@+id/tab_borrow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Borrow" />
+            <Button
+                android:textAllCaps="true"
+                android:id="@+id/btn_borrow"
+                android:textStyle="bold"
+                android:text="Borrow"
+                android:layout_width="105dp"
+                android:layout_height="40dp" />
 
-            <android.support.design.widget.TabItem
-                android:id="@+id/tab_buy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Buy" />
+            <Button
+                android:layout_marginRight="20dp"
+                android:id="@+id/btn_buy"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:text="Buy"
+                android:layout_width="105dp"
+                android:layout_height="40dp" />
 
-        </android.support.design.widget.TabLayout>
+        </LinearLayout>
 
 
         <LinearLayout
@@ -206,6 +209,7 @@
 
         </LinearLayout>
 
+
         <android.support.v7.widget.RecyclerView
             android:layout_below="@id/linear_trending"
             android:orientation="horizontal"
@@ -217,9 +221,9 @@
         </android.support.v7.widget.RecyclerView>
 
 
-
         <android.support.v4.view.ViewPager
             android:visibility="gone"
+            android:layout_above="@id/bottom_navigationView"
             android:layout_marginTop="10dp"
             android:layout_below="@id/tab_layout_secondary"
             android:id="@+id/view_pager"
@@ -233,6 +237,7 @@
 
         <LinearLayout
             android:visibility="gone"
+            android:layout_above="@id/bottom_navigationView"
             android:layout_below="@id/toolBar"
             android:id="@+id/container_home"
             android:gravity="center"
@@ -245,7 +250,8 @@
 
         <LinearLayout
             android:visibility="gone"
-            android:layout_below="@id/toolBar"
+            android:layout_above="@id/bottom_navigationView"
+            android:layout_below="@id/tab_layout_secondary"
             android:id="@+id/container_book_fragment"
             android:gravity="center"
             android:orientation="vertical"
@@ -253,6 +259,34 @@
             android:layout_height="match_parent">
 
         </LinearLayout>
+
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_above="@id/bottom_navigationView"
+            android:layout_below="@id/tab_layout_secondary"
+            android:id="@+id/linear_container_book_borrow_fragment"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+
+
+        <android.support.design.widget.BottomNavigationView
+            app:itemIconTint="@color/colorPrimary"
+            android:layout_alignParentBottom="true"
+            app:itemTextColor="@color/cardview_dark_background"
+            app:menu="@menu/nav_button"
+            android:id="@+id/bottom_navigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.design.widget.BottomNavigationView>
+
 
 
 

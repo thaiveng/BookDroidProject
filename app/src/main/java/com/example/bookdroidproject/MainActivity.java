@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnLogin;
 
 
-    private String url = "http://172.23.23.216:8000/api/user/getall/";
-    private String urllogin = "http://172.23.23.216:8000/api/user/login/";
+    private String url = "http://192.168.43.132:8000/api/user/getall";
+    private String urllogin = "http://192.168.43.132:8000/api/user/login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
