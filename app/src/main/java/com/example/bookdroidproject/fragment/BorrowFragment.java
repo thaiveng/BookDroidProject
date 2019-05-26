@@ -48,7 +48,7 @@ public class BorrowFragment extends Fragment {
         {
             Booksmodel model = new Booksmodel();
             model.setImg_book(R.drawable.novel_book);
-            model.setTitle("Book "+i);
+            model.setTitle_book("Book "+i);
             booksmodelList.add(model);
 
         }
@@ -64,7 +64,7 @@ public class BorrowFragment extends Fragment {
         {
             Booksmodel model1 = new Booksmodel();
             model1.setImg_book(R.drawable.novel_book);
-            model1.setTitle("Book "+i+i);
+            model1.setTitle_book("Book "+i+i);
             booksmodelList1.add(model1);
         }
 

@@ -53,7 +53,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.MyViewholder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewholder myViewholder, int i) {
-        myViewholder.txt_title.setText(booklist.get(i).getTitle());
+        myViewholder.txt_title.setText(booklist.get(i).getTitle_book());
         myViewholder.img_book.setImageResource(booklist.get(i).getImg_book());
     }
 

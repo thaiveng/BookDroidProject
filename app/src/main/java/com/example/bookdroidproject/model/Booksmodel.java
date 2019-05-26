@@ -1,15 +1,17 @@
 package com.example.bookdroidproject.model;
 
-public class BooksModel {
+public class Booksmodel {
 
     private String title_book;
-    private int imgID;
+    private int img_book;
 
-    public BooksModel(String title_book, int imgID) {
+    public Booksmodel(String title_book, int img_book) {
         this.title_book = title_book;
-        this.imgID = imgID;
+        this.img_book = img_book;
     }
 
+    public Booksmodel() {
+    }
 
     public String getTitle_book() {
         return title_book;
@@ -19,11 +21,11 @@ public class BooksModel {
         this.title_book = title_book;
     }
 
-    public int getImgID() {
-        return imgID;
+    public int getImg_book() {
+        return img_book;
     }
 
-    public void setImgID(int imgID) {
-        this.imgID = imgID;
+    public void setImg_book(int img_book) {
+        this.img_book = img_book;
     }
 }
