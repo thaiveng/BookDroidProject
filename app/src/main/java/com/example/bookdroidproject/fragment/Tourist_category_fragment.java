@@ -28,7 +28,6 @@ public class Tourist_category_fragment extends Fragment {
         booksmodelList = new ArrayList<Booksmodel>();
         booksmodelList1 = new ArrayList<Booksmodel>();
 
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerViewHome = view.findViewById(R.id.recycler_home_reco);
         recyclerViewHometrend = view.findViewById(R.id.recycler_home_tre);
 //        recyclerViewHome.setHasFixedSize(true);

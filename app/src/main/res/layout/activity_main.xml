@@ -94,15 +94,6 @@
         android:text="Login with facebook"
         android:layout_width="233dp"
         android:layout_height="28dp" />
-    <Button
-
-        android:background="@drawable/radius_shape"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:text="Login with gmail"
-        android:layout_width="233dp"
-        android:layout_height="28dp" />
-
 
     <LinearLayout
         android:orientation="horizontal"

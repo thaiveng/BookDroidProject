@@ -19,16 +19,6 @@ import com.example.bookdroidproject.fragment.Tourist_category_fragment;
 
 public class PageAdapter extends FragmentPagerAdapter {
 
-
-    ViewPager viewPager;
-    RecyclerView r1,r2;
-    TextView tvRecommend,tvTrending;
-    RelativeLayout rel1,rel2;
-
-    TabLayout tabLayout1;
-
-    LinearLayout linearLayout;
-
     int numTab;
     public PageAdapter(FragmentManager fm, int numTab) {
         super(fm);

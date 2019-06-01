@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RelativeLayout
-            android:id="@+id/all_books_click"
+            android:id="@+id/all_books_click_math"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
