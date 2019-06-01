@@ -68,7 +68,7 @@ public class Activity_books extends AppCompatActivity {
     List<Booksmodel> booksmodelList,booksmodelList1;
     LinearLayout btnAll,btnAllTrend;
 
-
+    SessionManager sessionManager;
     LinearLayout linearLayout_containter_home;
     LinearLayout linearLayout_container_borrow_buy_book;
 
@@ -162,6 +162,10 @@ public class Activity_books extends AppCompatActivity {
 //        btnBorrow.setOnClickListener(this);
 
 
+        // call method to check if log in
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
+
         // call this method to find id of each element
         initView();
 
@@ -194,6 +198,13 @@ public class Activity_books extends AppCompatActivity {
         btnAllTrend = findViewById(R.id.all_books_click_trending);
         recyclerViewHome = findViewById(R.id.recycler_home_reco);
         recyclerViewHometrend = findViewById(R.id.recycler_home_tre);
+
+        btnAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         recyclerViewHome.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false));
 
@@ -333,6 +344,7 @@ public class Activity_books extends AppCompatActivity {
                         tab_btnBorrow_btnBuy.setVisibility(View.GONE);
                         viewPager_eacbtab.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),"You are selected signout",Toast.LENGTH_SHORT).show();
+                        sessionManager.logout();
                         drawerLayout.closeDrawers();
                         return true;
 

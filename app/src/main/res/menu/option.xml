@@ -50,8 +50,6 @@
     <group
         android:checkableBehavior="single"
         >
-
-
         <item
             android:id="@+id/item_signout"
             android:title="Signout"

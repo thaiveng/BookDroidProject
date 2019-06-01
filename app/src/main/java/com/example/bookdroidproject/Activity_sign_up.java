@@ -1,11 +1,13 @@
 package com.example.bookdroidproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,10 +22,10 @@ import java.util.HashMap;
 
 public class Activity_sign_up extends AppCompatActivity {
 
-    EditText editTextName,editTextEmail,editTextPhone,editTextPwd;
+    EditText editTextName,editTextEmail,editTextPhone,editTextPwd,getEditTextC_Pwd;
     Button btnSignup;
 
-    private String url = "http://171.23.23.216:8000/api/user/signup/";
+    private String url = "http://192.168.100.187:8000/api/register";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,7 @@ public class Activity_sign_up extends AppCompatActivity {
         editTextEmail = findViewById(R.id.edit_text_email);
         editTextPhone = findViewById(R.id.edit_text_phone);
         editTextPwd = findViewById(R.id.edit_text_pwd);
+        getEditTextC_Pwd = findViewById(R.id.edit_text_con_pwd);
 
         btnSignup = findViewById(R.id.btn_signup);
 
@@ -42,14 +45,27 @@ public class Activity_sign_up extends AppCompatActivity {
                 String email = editTextEmail.getText().toString();
                 String phone = editTextPhone.getText().toString();
                 String pwd = editTextPwd.getText().toString();
+                String co_pwd = getEditTextC_Pwd.getText().toString();
 
-                HashMap data = new HashMap();
-                data.put("name", name);
-                data.put("email", email);
-                data.put("phone_number", phone);
-                data.put("password", pwd);
+                if (!email.isEmpty() || !pwd.isEmpty()) {
 
-                postData(url, data);
+                    HashMap data = new HashMap();
+                    data.put("name", name);
+                    data.put("email", email);
+                    data.put("phone_number", phone);
+                    data.put("password", pwd);
+                    data.put("c_password", co_pwd);
+
+                    postData(url, data);
+                } else {
+                    editTextEmail.setError("Please insert email");
+                    editTextPwd.setError("Please insert password");
+                    editTextName.setError("Please insert name");
+                    editTextPhone.setError("Please insert phone number");
+                    getEditTextC_Pwd.setError("Please insert Confirm password");
+                }
+
+
             }
         });
     }
@@ -59,11 +75,15 @@ public class Activity_sign_up extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 Log.e("save", response.toString());
+                Toast.makeText(Activity_sign_up.this,"success",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Activity_sign_up.this,MainActivity.class);
+                startActivity(intent);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("error", error.toString());
+                Toast.makeText(Activity_sign_up.this,"Fail",Toast.LENGTH_SHORT).show();
             }
         });
 
