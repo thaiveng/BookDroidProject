@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,6 +43,7 @@ public class Mathematic_category_fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 loadFragment(new All_book_fragment());
+
             }
         });
 
@@ -79,7 +81,9 @@ public class Mathematic_category_fragment extends Fragment {
     private void loadFragment(Fragment fragment){
         FragmentManager fm = getFragmentManager();
         FragmentTransaction tf = fm.beginTransaction();
+        tf.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         tf.replace(R.id.view_pager,fragment);
+
         tf.commit();
     }
 }

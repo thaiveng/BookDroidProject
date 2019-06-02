@@ -37,7 +37,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Novel" />
-
             <android.support.design.widget.TabItem
                 android:id="@+id/tab_sport"
                 android:layout_width="wrap_content"
@@ -63,11 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mathematics" />
-
-
         </android.support.design.widget.TabLayout>
-
-
 
         <LinearLayout
             android:orientation="horizontal"
@@ -76,8 +71,7 @@
             android:layout_below="@id/tab_layout"
             android:id="@+id/tab_layout_secondary"
             android:layout_width="200dp"
-            android:layout_height="30dp"
-           >
+            android:layout_height="30dp">
 
             <Button
                 android:textAllCaps="true"
@@ -98,9 +92,13 @@
 
         </LinearLayout>
 
-
-
-
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:id="@+id/view_pager"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_above="@id/bottom_navigationView"-->
+            <!--android:layout_below="@id/tab_layout_secondary"/>-->
 
         <android.support.v4.view.ViewPager
             android:visibility="visible"
@@ -128,35 +126,6 @@
 
         </LinearLayout>
 
-
-        <!--<LinearLayout-->
-            <!--android:visibility="gone"-->
-            <!--android:layout_above="@id/bottom_navigationView"-->
-            <!--android:layout_below="@id/tab_layout_secondary"-->
-            <!--android:id="@+id/container_book_fragment"-->
-            <!--android:gravity="center"-->
-            <!--android:orientation="vertical"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-        <!--</LinearLayout>-->
-
-
-
-        <!--<LinearLayout-->
-            <!--android:visibility="visible"-->
-            <!--android:layout_above="@id/bottom_navigationView"-->
-            <!--android:layout_below="@id/tab_layout_secondary"-->
-            <!--android:id="@+id/linear_container_book_borrow_fragment"-->
-            <!--android:gravity="center"-->
-            <!--android:orientation="vertical"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-        <!--</LinearLayout>-->
-
-
-
         <android.support.design.widget.BottomNavigationView
             app:itemIconTint="@color/colorPrimary"
             android:layout_alignParentBottom="true"
@@ -168,13 +137,7 @@
 
         </android.support.design.widget.BottomNavigationView>
 
-
-
-
     </RelativeLayout>
-
-
-
 
     <android.support.design.widget.NavigationView
         app:headerLayout="@layout/header_nav"
@@ -185,8 +148,5 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
     </android.support.design.widget.NavigationView>
-
-
-
 
 </android.support.v4.widget.DrawerLayout>

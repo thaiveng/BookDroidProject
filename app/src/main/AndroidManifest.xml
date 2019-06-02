@@ -17,8 +17,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".DetailEachBook" />
         <activity android:name=".Activity_sign_up" />
-        <activity android:name=".SplashScreenActivity" />
-        <activity android:name=".Activity_books">
+        <activity android:name=".Activity_books" />
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

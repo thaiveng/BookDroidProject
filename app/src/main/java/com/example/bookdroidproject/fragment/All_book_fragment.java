@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ public class All_book_fragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_all_book, container, false);
 
 
+
         booksmodelList = new ArrayList<All_book_model>();
         recyclerViewHome = view.findViewById(R.id.recycler_all_book);
         recyclerViewHome.setHasFixedSize(true);
@@ -44,9 +46,9 @@ public class All_book_fragment extends Fragment {
             booksmodelList.add(model);
 
         }
-
         adapterBooks = new AllBooksAdapter(booksmodelList,getActivity());
         recyclerViewHome.setAdapter(adapterBooks);
+
         return view;
     }
 }

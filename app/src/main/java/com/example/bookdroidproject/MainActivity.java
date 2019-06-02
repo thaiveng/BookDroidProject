@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
                     try {
                         sessionManager.createSession(response.getString("name"),response.getString("email"),response.getString("id"));
-                        Log.e("Data ",response.getString("name"));
+                        Log.e("Data ",response.getString("id"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

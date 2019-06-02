@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.example.bookdroidproject.adapter.BooksAdapter;
 import com.example.bookdroidproject.adapter.PageAdapter;
 import com.example.bookdroidproject.fragment.AboutUsFragment;
+import com.example.bookdroidproject.fragment.All_book_fragment;
 import com.example.bookdroidproject.fragment.Feed_fragment;
 import com.example.bookdroidproject.fragment.Notification_fragment;
 import com.example.bookdroidproject.fragment.Post_fragment;
@@ -270,8 +271,6 @@ public class Activity_books extends AppCompatActivity {
                         viewPager_eacbtab.setVisibility(View.VISIBLE);
                         break;
 
-
-
                     case 5:
                         viewPager.setCurrentItem(index);
                         viewPager_eacbtab.setVisibility(View.VISIBLE);
@@ -279,7 +278,6 @@ public class Activity_books extends AppCompatActivity {
                 }
 
             }
-
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
