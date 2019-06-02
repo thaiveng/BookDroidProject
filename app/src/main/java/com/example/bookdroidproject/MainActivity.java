@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLogin;
 
     SessionManager sessionManager;
-    private String urllogin = "http://192.168.100.187:8000/api/login";
+    private String urllogin = "http://172.20.10.6:8000/api/login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
