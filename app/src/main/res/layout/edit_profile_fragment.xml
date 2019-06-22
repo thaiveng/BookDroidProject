@@ -14,15 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/toolBar"
-            layout="@layout/tool_bar">
-
-        </include>
-
         <LinearLayout
-            android:layout_below="@id/toolBar"
-            android:layout_above="@id/bottom_navigationView"
             android:orientation="vertical"
             android:id="@+id/main_linear_ScreenEditProfile"
             android:layout_width="match_parent"
@@ -82,7 +74,7 @@
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_user"
+                    android:id="@+id/img_user_edit"
                     app:civ_border_width="2dp"
                     app:civ_border_color="#D5D7F3"
                     android:src="@drawable/user_profile"
@@ -247,18 +239,6 @@
 
         </LinearLayout>
 
-
-
-        <android.support.design.widget.BottomNavigationView
-            app:itemIconTint="@color/colorPrimary"
-            android:layout_alignParentBottom="true"
-            app:itemTextColor="@color/cardview_dark_background"
-            app:menu="@menu/nav_button"
-            android:id="@+id/bottom_navigationView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </android.support.design.widget.BottomNavigationView>
 
 
     </RelativeLayout>

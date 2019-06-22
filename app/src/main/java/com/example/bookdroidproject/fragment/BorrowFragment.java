@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -47,7 +47,7 @@ public class BorrowFragment extends Fragment {
         for(int i=0;i<10;i++)
         {
             Booksmodel model = new Booksmodel();
-            model.setImg_book(R.drawable.novel_book);
+//            model.setImg_book(R.drawable.novel_book);
             model.setTitle_book("Book "+i);
             booksmodelList.add(model);
 
@@ -63,7 +63,7 @@ public class BorrowFragment extends Fragment {
         for(int i=0;i<10;i++)
         {
             Booksmodel model1 = new Booksmodel();
-            model1.setImg_book(R.drawable.novel_book);
+//            model1.setImg_book(R.drawable.b5);
             model1.setTitle_book("Book "+i+i);
             booksmodelList1.add(model1);
         }

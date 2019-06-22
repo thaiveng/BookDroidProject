@@ -44,7 +44,7 @@ public class DetailEachBook extends AppCompatActivity {
         initView();
 
 
-        initToolBar();
+        initToolBar(); ////
 
 
         // call this method to make action when click on each icon of bottom navigation

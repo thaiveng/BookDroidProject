@@ -10,13 +10,5 @@
         app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView"/>
 
-    <item
-        android:icon="@drawable/user_profile"
-        app:showAsAction="always"
-        android:title="Image Profile"
-        android:id="@+id/icon_show_profile"
-        >
-
-    </item>
 
 </menu>

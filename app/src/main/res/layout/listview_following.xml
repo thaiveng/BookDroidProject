@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:weightSum="3"
+   android:padding="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -34,7 +35,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_marginTop="10dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/tv_username_following"
         android:layout_weight="1"
         android:textSize="20dp"

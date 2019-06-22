@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.bookdroidproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@drawable/logo_png"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".User_Following_Activity" />
+        <activity android:name=".ImagePickerActivity"></activity>
+        <activity android:name=".UserFollowerActivity" />
+        <activity android:name=".UserFollowingActivity" />
+        <activity android:name=".Post_Feed_Activity" />
+        <activity android:name=".All_User_Feed_activity" />
+        <activity
+            android:name=".Activity_Term_Of_Use"
+            android:parentActivityName=".Activity_books" />
+        <activity
+            android:name=".Activity_About_Us"
+            android:parentActivityName=".Activity_books" />
         <activity android:name=".adapter.Edit_Profile_Activity" />
         <activity android:name=".User_Profile_Activity" />
         <activity android:name=".MainActivity" />
@@ -25,6 +40,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
+
+        <!-- uCrop cropping activity -->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.bookdroidproject.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_image_picker"/>
+        </provider>
+
+
+        <!--&lt;!&ndash; cache directory file provider paths &ndash;&gt;-->
+        <!--<provider-->
+            <!--android:name="android.support.v4.content.FileProvider"-->
+            <!--android:authorities="${applicationId}.provider"-->
+            <!--android:exported="false"-->
+            <!--android:grantUriPermissions="true">-->
+            <!--<meta-data-->
+                <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+                <!--android:resource="@xml/file_paths_image_crop" />-->
+        <!--</provider>-->
+
     </application>
 
 </manifest>

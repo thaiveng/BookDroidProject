@@ -11,12 +11,12 @@
 
     <style name="MyCustomTheme" parent="MaterialSearchBarLight">
         <item name="mt_searchBarColor">@color/searchBarPrimaryColor</item>
-        <item name="mt_dividerColor">@color/searchBarDividerColor</item>
-        <item name="mt_navIconTint">@color/searchBarNavIconTintColor</item>
-        <item name="mt_searchIconTint">@color/searchBarSearchIconTintColor</item>
-        <item name="mt_clearIconTint">@color/searchBarClearIconTintColor</item>
-        <item name="mt_menuIconTint">@color/searchBarMenuIconTintColor</item>
-        <item name="mt_backIconTint">@color/searchBarBackIconTintColor</item>
+        <!--<item name="mt_dividerColor">@color/searchBarDividerColor</item>-->
+        <!--<item name="mt_navIconTint">@color/searchBarNavIconTintColor</item>-->
+        <!--<item name="mt_searchIconTint">@color/searchBarSearchIconTintColor</item>-->
+        <!--<item name="mt_clearIconTint">@color/searchBarClearIconTintColor</item>-->
+        <!--<item name="mt_menuIconTint">@color/searchBarMenuIconTintColor</item>-->
+        <item name="mt_backIconTint">@color/bgColorToolbar</item>
         <item name="mt_textCursorTint">@color/searchBarCursorColor</item>
         <item name="mt_textColor">@color/searchBarTextColor</item>
         <item name="mt_hintColor">@color/searchBarHintColor</item>
@@ -32,5 +32,17 @@
     <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">25sp</item>
+    </style>
 
 </resources>

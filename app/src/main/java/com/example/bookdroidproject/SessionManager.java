@@ -66,4 +66,5 @@ public class SessionManager {
         ((Activity_books) context).finish();
 
     }
+
 }

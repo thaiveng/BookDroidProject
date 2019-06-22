@@ -28,7 +28,7 @@ public class Edit_Profile_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit__profile_);
+        setContentView(R.layout.edit_profile_fragment);
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigationView);

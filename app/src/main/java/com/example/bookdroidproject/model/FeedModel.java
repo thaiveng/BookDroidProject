@@ -2,7 +2,7 @@ package com.example.bookdroidproject.model;
 
 public class FeedModel  {
     String title,description;
-    int img;
+    int imgFeed;
 
     public String getTitle() {
         return title;
@@ -20,17 +20,17 @@ public class FeedModel  {
         this.description = description;
     }
 
-    public int getImg() {
-        return img;
+    public int getImgFeed() {
+        return imgFeed;
     }
 
-    public void setImg(int img) {
-        this.img = img;
+    public void setImgFeed(int imgFeed) {
+        this.imgFeed = imgFeed;
     }
 
-    public FeedModel(String title, String description, int img) {
+    public FeedModel(String title, String description, int imgFeed) {
         this.title = title;
         this.description = description;
-        this.img = img;
+        this.imgFeed = imgFeed;
     }
 }

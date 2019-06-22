@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.bookdroidproject.SQLlite.DBHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar loading;
     private Button btnLogin;
 
+    DBHelper dbHelper;
+
     SessionManager sessionManager;
-    private String urllogin = "http://172.20.10.6:8000/api/login";
+    private String urllogin = "http://192.168.100.187:8000/api/login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
                     try {
                         sessionManager.createSession(response.getString("name"),response.getString("email"),response.getString("id"));
+                        dbHelper = new DBHelper(getApplicationContext());
+                        dbHelper.change(response.getString("id"));
                         Log.e("Data ",response.getString("id"));
                     } catch (JSONException e) {
                         e.printStackTrace();

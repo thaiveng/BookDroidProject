@@ -14,30 +14,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include
-            layout="@layout/tool_bar"
-            android:id="@+id/toolBar">
-
-        </include>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+            android:background="#00bfff"
             android:gravity="center"
-            android:layout_below="@id/toolBar"
             android:id="@+id/main_linear_ScreenUserProfile"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="350dp">
 
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_user"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#D5D7F3"
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/img_profile"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="@dimen/activity_padding"
+                android:layout_marginBottom="@dimen/activity_padding"
+                android:scaleType="centerInside"
                 android:src="@drawable/user_profile"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="150dp" />
+                app:civ_border_color="@android:color/white"
+                app:civ_border_width="2dp" />
 
 
             <TextView
@@ -45,86 +41,27 @@
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#fff"
                 android:text="User name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
 
             <TextView
-                android:id="@+id/tv_below_username"
+                android:id="@+id/bio_user_profile"
                 android:textAlignment="center"
                 android:textSize="15sp"
+                android:textColor="#fff"
                 android:text="This part is bio of the user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
 
-            <LinearLayout
-
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:id="@+id/sub_linear1"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_marginLeft="3dp"
-                    android:id="@+id/img1"
-                    app:civ_border_width="2dp"
-                    app:civ_border_color="#D5D7F3"
-                    android:src="@drawable/ic_user_profile_24dp"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp" />
-
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_marginLeft="3dp"
-                    android:id="@+id/img2"
-                    app:civ_border_width="2dp"
-                    app:civ_border_color="#D5D7F3"
-                    android:src="@drawable/ic_user_profile_24dp"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp" />
-
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_marginLeft="3dp"
-                    android:id="@+id/img3"
-                    app:civ_border_width="2dp"
-                    app:civ_border_color="#D5D7F3"
-                    android:src="@drawable/ic_user_profile_24dp"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp" />
-
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_marginLeft="3dp"
-                    android:id="@+id/img4"
-                    app:civ_border_width="2dp"
-                    app:civ_border_color="#D5D7F3"
-                    android:src="@drawable/ic_user_profile_24dp"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp" />
-
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_marginLeft="3dp"
-                    android:id="@+id/img5"
-                    app:civ_border_width="2dp"
-                    app:civ_border_color="#D5D7F3"
-                    android:src="@drawable/ic_user_profile_24dp"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp" />
-
-
-            </LinearLayout>
 
 
 
             <Button
+                android:id="@+id/btn_edit_profile"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button_radius_user_profile"
                 android:text="Edit Profile"
@@ -144,7 +81,7 @@
 
                 <LinearLayout
                     android:layout_weight="1"
-                    android:id="@+id/sub_linear1_in_sub_linear2"
+                    android:id="@+id/linear_post_UserProfile"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -172,7 +109,7 @@
 
                 <LinearLayout
                     android:layout_weight="1"
-                    android:id="@+id/sub_linear2_in_sub_linear2"
+                    android:id="@+id/linear_following_UserProfile"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -200,7 +137,7 @@
 
                 <LinearLayout
                     android:layout_weight="1"
-                    android:id="@+id/sub_linear3_in_sub_linear2"
+                    android:id="@+id/linear_follower_UserProfile"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -231,68 +168,8 @@
         </LinearLayout>
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_marginTop="8dp"
-            android:layout_toRightOf="@id/rel_searchview"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
-            android:layout_width="40dp"
-            android:layout_height="35dp"
-            android:src="@drawable/ic_person_black_24dp"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#D5D7F3"/>
-
-
-
-        <RelativeLayout
-            android:id="@+id/rel_searchview"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="50dp"
-            android:background="#FFF"
-            android:layout_width="250dp"
-            android:layout_height="25dp">
-
-
-            <ImageView
-                android:id="@+id/imgSearch"
-                android:src="@drawable/ic_search_black_24dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
-
-
-
-            <EditText
-                android:hint="Search book"
-                android:id="@+id/edtSearch"
-                android:singleLine="true"
-                android:textColor="#000"
-                android:background="@drawable/radius_shape"
-                android:layout_marginLeft="5dp"
-                android:layout_toRightOf="@id/imgSearch"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </RelativeLayout>
-
-
-
-
-        <android.support.design.widget.BottomNavigationView
-            app:itemIconTint="@color/colorPrimary"
-            android:layout_alignParentBottom="true"
-            app:itemTextColor="@color/cardview_dark_background"
-            app:menu="@menu/nav_button"
-            android:id="@+id/bottom_navigationView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </android.support.design.widget.BottomNavigationView>
-
-
     </RelativeLayout>
+
 
 
     <android.support.design.widget.NavigationView

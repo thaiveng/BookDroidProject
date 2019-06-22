@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".All_User_Feed_activity">
+
+    <include
+        layout="@layout/tool_bar"
+        android:id="@+id/toolBar_post_feed">
+    </include>
+
+
+    <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/tv_description_post_feed"
+            android:textSize="20sp"
+            android:text="Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/edt_description_post_feed"
+            android:inputType="textMultiLine"
+            android:background="@drawable/linearlayout_border"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Choose Image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:id="@+id/linear_choose_img_post_feed"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/linearlayout_border"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:id="@+id/img_post_feed"
+                android:src="@drawable/ic_image_black_24dp"
+                android:layout_width="70dp"
+                android:layout_height="90dp" />
+
+
+            <TextView
+                android:id="@+id/tv_upload_img_post_feed"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:text="Upload Image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:gravity="center"
+       android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+
+            android:background="#00bfff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Post"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

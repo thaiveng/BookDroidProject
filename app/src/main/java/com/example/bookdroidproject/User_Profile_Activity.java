@@ -1,13 +1,9 @@
 package com.example.bookdroidproject;
 
-import android.content.Intent;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,8 +12,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
-
-import com.example.bookdroidproject.adapter.PageAdapter;
 
 public class User_Profile_Activity extends AppCompatActivity {
 
@@ -31,7 +25,7 @@ public class User_Profile_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user__profile_);
+        setContentView(R.layout.user_profile_fragment);
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigationView);

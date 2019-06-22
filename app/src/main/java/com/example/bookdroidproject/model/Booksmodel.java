@@ -3,9 +3,9 @@ package com.example.bookdroidproject.model;
 public class Booksmodel {
 
     private String title_book;
-    private int img_book;
+    private String img_book;
 
-    public Booksmodel(String title_book, int img_book) {
+    public Booksmodel(String title_book, String img_book) {
         this.title_book = title_book;
         this.img_book = img_book;
     }
@@ -21,11 +21,11 @@ public class Booksmodel {
         this.title_book = title_book;
     }
 
-    public int getImg_book() {
+    public String getImg_book() {
         return img_book;
     }
 
-    public void setImg_book(int img_book) {
+    public void setImg_book(String img_book) {
         this.img_book = img_book;
     }
 }

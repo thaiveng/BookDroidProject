@@ -51,14 +51,13 @@ public class UserFollowingAdapter extends BaseAdapter {
 
         CircleImageView imageView = view.findViewById(R.id.img_user_following);
         TextView textView = view.findViewById(R.id.tv_username_following);
-        Button button = view.findViewById(R.id.btn_user_following);
+
 
 
         User_Following_model obj = user_followings.get(position);
 
         imageView.setImageResource(obj.getImgID());
         textView.setText(obj.getUsername());
-        button.setText(obj.getText_button());
 
         return view;
     }

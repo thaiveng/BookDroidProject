@@ -16,7 +16,7 @@
                 android:layout_width="62dp"
                 android:layout_height="96dp" />
             <TextView
-                android:paddingLeft="15dp"
+                android:paddingLeft="18dp"
                 android:id="@+id/txt_title"
                 android:maxLines="1"
                 android:text="Title: "

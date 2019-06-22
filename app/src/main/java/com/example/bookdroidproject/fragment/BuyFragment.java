@@ -1,6 +1,6 @@
 package com.example.bookdroidproject.fragment;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -45,7 +45,7 @@ public class BuyFragment extends Fragment {
         for(int i=0;i<10;i++)
         {
             Booksmodel model = new Booksmodel();
-            model.setImg_book(R.drawable.buy_book);
+//            model.setImg_book(R.drawable.buy_book);
             model.setTitle_book("Book "+i);
             booksmodelList.add(model);
 
@@ -61,7 +61,7 @@ public class BuyFragment extends Fragment {
         for(int i=0;i<10;i++)
         {
             Booksmodel model1 = new Booksmodel();
-            model1.setImg_book(R.drawable.buy_book);
+//            model1.setImg_book(R.drawable.buy_book);
             model1.setTitle_book("Book "+i+i);
             booksmodelList1.add(model1);
         }

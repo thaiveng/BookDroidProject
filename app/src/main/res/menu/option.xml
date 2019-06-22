@@ -8,9 +8,9 @@
         >
 
         <item
-            android:icon="@drawable/ic_user_profile_24dp"
-            android:id="@+id/item_profile"
-            android:title="Profile"
+            android:icon="@drawable/ic_store"
+            android:id="@+id/item_store"
+            android:title="Store"
             app:showAsAction="never"
             >
         </item>
@@ -25,6 +25,7 @@
         >
 
         <item
+            android:icon="@drawable/ic_group_black_24dp"
             android:id="@+id/item_about_us"
             android:title="About Us"
             app:showAsAction="never"
@@ -38,6 +39,7 @@
         >
 
         <item
+            android:icon="@drawable/term_logo"
             android:id="@+id/item_term_of_use"
             android:title="Term of Use"
             app:showAsAction="never"
@@ -51,6 +53,7 @@
         android:checkableBehavior="single"
         >
         <item
+            android:icon="@drawable/sign_out"
             android:id="@+id/item_signout"
             android:title="Signout"
             app:showAsAction="never"

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.bookdroidproject.Activity_books;
 import com.example.bookdroidproject.R;
 import com.example.bookdroidproject.model.Booksmodel;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -54,7 +55,8 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.MyViewholder
     @Override
     public void onBindViewHolder(@NonNull MyViewholder myViewholder, int i) {
         myViewholder.txt_title.setText(booklist.get(i).getTitle_book());
-        myViewholder.img_book.setImageResource(booklist.get(i).getImg_book());
+//        myViewholder.img_book.setImageResource(booklist.get(i).getImg_book());
+        Picasso.get().load(booklist.get(i).getImg_book()).into(myViewholder.img_book);
     }
 
     @Override
