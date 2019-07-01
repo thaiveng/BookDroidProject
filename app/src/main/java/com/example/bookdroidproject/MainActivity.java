@@ -16,16 +16,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bookdroidproject.SQLlite.DBHelper;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,20 +33,16 @@ public class MainActivity extends AppCompatActivity {
     DBHelper dbHelper;
 
     SessionManager sessionManager;
-    private String urllogin = "http://192.168.100.187:8000/api/login";
+    private String urllogin ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        urllogin = getResources().getString(R.string.url)+"/api/login";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         sessionManager = new SessionManager(this);
         Log.e("Sesson ", sessionManager.getUserDetail().toString());
-
-//        if (sessionManager.isLoggin()){
-//            Intent intent = new Intent(MainActivity.this, Activity_books.class);
-//            startActivity(intent);
-//        }
         loading = findViewById(R.id.loading);
         txtEmail = findViewById(R.id.edit_text_email_login);
         txtPassword = findViewById(R.id.edit_text_pwd);

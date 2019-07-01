@@ -41,8 +41,6 @@ public class UserFollowingActivity extends AppCompatActivity {
 
         listUserFollowing = new ArrayList<User_Following_model>();
 
-
-
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Tay");
         ActionBar actionBar = getSupportActionBar();

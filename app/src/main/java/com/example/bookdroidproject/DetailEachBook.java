@@ -80,13 +80,7 @@ public class DetailEachBook extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
-
-
-
     }
-
-
-
     private void setUpNavigationView(){
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -96,7 +90,6 @@ public class DetailEachBook extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-
                 switch (menuItem.getItemId()){
 
                     case R.id.item_profile:
@@ -104,25 +97,21 @@ public class DetailEachBook extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         return true;
 
-
                     case R.id.item_about_us:
                         Toast.makeText(getApplicationContext(),"You are selected about us",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
-
 
                     case R.id.item_term_of_use:
                         Toast.makeText(getApplicationContext(),"You are selected term of use",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
 
-
                     case R.id.item_signout:
                         Toast.makeText(getApplicationContext(),"You are selected signout",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
                 }
-
 
                 return false;
             }
@@ -141,7 +130,6 @@ public class DetailEachBook extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     // set action to bottom navigation view
 

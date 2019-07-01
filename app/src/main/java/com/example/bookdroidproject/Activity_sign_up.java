@@ -25,7 +25,7 @@ public class Activity_sign_up extends AppCompatActivity {
     EditText editTextName,editTextEmail,editTextPhone,editTextPwd,getEditTextC_Pwd;
     Button btnSignup;
 
-    private String url = "http://192.168.100.187:8000/api/register";
+    private String url = getResources().getString(R.string.url)+"/api/register";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

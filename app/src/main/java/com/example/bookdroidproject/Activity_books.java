@@ -43,9 +43,6 @@ import java.util.List;
 
 public class Activity_books extends AppCompatActivity {
 
-
-    private List<String> lastSearches;
-    private MaterialSearchBar searchBar;
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -56,27 +53,13 @@ public class Activity_books extends AppCompatActivity {
     private PageAdapter adapter;
 
 
-    Context context;
-
-    RecyclerView recyclerViewHome,recyclerViewHometrend;
-    BooksAdapter adapterBooks;
-    List<Booksmodel> booksmodelList,booksmodelList1;
-    LinearLayout btnAll,btnAllTrend;
-
-
     SessionManager sessionManager;
     LinearLayout linearLayout_containter_home;
-    LinearLayout linearLayout_container_borrow_buy_book;
     LinearLayout linearLayout_container_following_follower;
 
 
     // declare variable to show or hide view
-    LinearLayout linearLayout_container_book_home;
     ViewPager viewPager_eacbtab;
-    LinearLayout linearLayout_recommend;
-    LinearLayout linearLayout_trending;
-    RecyclerView recyclerView_reco;
-    RecyclerView recyclerView_tre;
     LinearLayout tab_btnBorrow_btnBuy;
 
 
@@ -84,10 +67,7 @@ public class Activity_books extends AppCompatActivity {
     Button btnBorrow;
     Button btnBuy;
 
-
-
     int index_bottom_navigation;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,31 +90,21 @@ public class Activity_books extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         sessionManager.checkLogin();
 
-
-
         // call this method to find id of each element
         initView();
-
-
 
         // method to create toolbar
         initToolBar();
 
-
-
         // call this method to make action when click on each tab
         setUpViewPager();
-
-
 
         //this method to show navigation view and action when click on each item
         setUpNavigationView();
 
-
         Intent intent = getIntent();
 
         index_bottom_navigation = intent.getIntExtra("INDEX_ITEM_BOTTOM_NAVIGATION_VIEW",0);
-
 
         selectBottomNavigationOption(index_bottom_navigation);
         Log.e("Index BTN ",""+index_bottom_navigation);
@@ -144,11 +114,6 @@ public class Activity_books extends AppCompatActivity {
         setActionBottomNavigationView();
 
     }
-
-
-
-
-
 
     //------------------------ method to set up tool bar -----------------------//
 
@@ -164,10 +129,6 @@ public class Activity_books extends AppCompatActivity {
 
     //************************************************************************//
 
-
-
-
-
     //-------------------- method to find each element id ---------------------//
 
     private void initView(){
@@ -180,16 +141,11 @@ public class Activity_books extends AppCompatActivity {
         toolbar = findViewById(R.id.toolBar);
 
     }
-
     //************************************************************************//
-
-
 
     //---------------------------------------- method to set up navigation view ------------------------------------//
 
     private void setUpNavigationView(){
-
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -232,10 +188,6 @@ public class Activity_books extends AppCompatActivity {
     }
 
     //---------------------------------------end of function setUpNavigationView---------------------------------------//
-
-
-
-
 
     //----------------------------------- method to show data in viewpager when click on each tab ----------------------------//
 
@@ -284,24 +236,17 @@ public class Activity_books extends AppCompatActivity {
                         viewPager_eacbtab.setVisibility(View.VISIBLE);
                         tab_btnBorrow_btnBuy.setVisibility(View.VISIBLE);
                         break;
-
-
-
                     case 3:
                         viewPager.setCurrentItem(index);
                         viewPager_eacbtab.setVisibility(View.VISIBLE);
                         tab_btnBorrow_btnBuy.setVisibility(View.VISIBLE);
                         break;
 
-
-
                     case 4:
                         viewPager.setCurrentItem(index);
                         viewPager_eacbtab.setVisibility(View.VISIBLE);
                         tab_btnBorrow_btnBuy.setVisibility(View.VISIBLE);
                         break;
-
-
 
                     case 5:
                         viewPager.setCurrentItem(index);

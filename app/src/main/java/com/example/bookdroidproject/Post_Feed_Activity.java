@@ -37,8 +37,6 @@ public class Post_Feed_Activity extends AppCompatActivity implements BSImagePick
 
         linearLayout = findViewById(R.id.linear_choose_img_post_feed);
 
-
-
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,8 +49,6 @@ public class Post_Feed_Activity extends AppCompatActivity implements BSImagePick
 
     }
 
-
-
     private void initToolBar(){
         toolbar = findViewById(R.id.toolBar_post_feed);
         setSupportActionBar(toolbar);
@@ -61,7 +57,6 @@ public class Post_Feed_Activity extends AppCompatActivity implements BSImagePick
         actionbar.setDisplayHomeAsUpEnabled(true);
 
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

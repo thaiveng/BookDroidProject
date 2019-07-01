@@ -15,7 +15,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,9 +38,6 @@ import com.example.bookdroidproject.ImagePickerActivity;
 import com.example.bookdroidproject.R;
 import com.example.bookdroidproject.SQLlite.DBHelper;
 import com.example.bookdroidproject.UserFollowingActivity;
-import com.example.bookdroidproject.adapter.BooksAdapter;
-import com.example.bookdroidproject.fragment.EditUserProfileFragment;
-import com.example.bookdroidproject.model.Booksmodel;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -65,7 +61,7 @@ public class UserProfileFragment extends Fragment {
 
     private static final String TAG = UserProfileFragment.class.getSimpleName();
     public static final int REQUEST_IMAGE = 100;
-    public String urlProfile = "http://192.168.100.187:8000/api/user/show";
+    public String urlProfile ;
     @BindView(R.id.img_profile)
     ImageView imgProfile;
 
@@ -73,14 +69,11 @@ public class UserProfileFragment extends Fragment {
 
     LinearLayout linearLayout_following;
 
-
     LinearLayout linearLayout_container_following_follower;
-
 
     String img_url_profile;
     String username;
     String bio;
-
 
     TextView tvUsername;
     TextView tvBio;
@@ -91,15 +84,11 @@ public class UserProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.user_profile_fragment, container, false);
 
-
+        urlProfile = getResources().getString(R.string.url)+"/api/user/show";
         editProfile = view.findViewById(R.id.btn_edit_profile);
-
         tvUsername = view.findViewById(R.id.tv_username_ScreenUserProfile);
-
         tvBio = view.findViewById(R.id.bio_user_profile);
-
         imgProfile = view.findViewById(R.id.img_profile);
-
         imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,7 +107,6 @@ public class UserProfileFragment extends Fragment {
 
 
         linearLayout_container_following_follower = view.findViewById(R.id.linear_container_following_follower);
-
 
         linearLayout_following = view.findViewById(R.id.linear_following_UserProfile);
 
@@ -186,8 +174,6 @@ public class UserProfileFragment extends Fragment {
                 }).check();
     }
 
-
-
     private void showImagePickerOptions() {
         ImagePickerActivity.showImagePickerOptions(getActivity(), new ImagePickerActivity.PickerOptionListener() {
             @Override
@@ -201,9 +187,6 @@ public class UserProfileFragment extends Fragment {
             }
         });
     }
-
-
-
     private void launchGalleryIntent() {
         Intent intent = new Intent(getActivity(), ImagePickerActivity.class);
         intent.putExtra(ImagePickerActivity.INTENT_IMAGE_PICKER_OPTION, ImagePickerActivity.REQUEST_GALLERY_IMAGE);
@@ -251,8 +234,6 @@ public class UserProfileFragment extends Fragment {
             }
         }
     }
-
-
     /**
      * Showing Alert Dialog with Settings option
      * Navigates user to app settings
@@ -271,16 +252,15 @@ public class UserProfileFragment extends Fragment {
 
     }
 
-    // navigating user to app settings
+    /**
+     * navigating user to app settings
+     */
     private void openSettings() {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
         intent.setData(uri);
         startActivityForResult(intent, 101);
     }
-
-
-
 
     private void loadFragment(Fragment fragment){
         FragmentManager fm = getFragmentManager();
@@ -289,14 +269,16 @@ public class UserProfileFragment extends Fragment {
         tf.commit();
     }
 
-
     private void loadFragmentUserFollowing(Fragment fragment){
         FragmentManager fm = getFragmentManager();
         FragmentTransaction tf = fm.beginTransaction();
         tf.replace(R.id.linear_container_following_follower,fragment);
         tf.commit();
     }
-    // post data===================================
+
+    /**
+     *  post data===================================
+     */
     private void postData() {
 
         try {
@@ -317,14 +299,11 @@ public class UserProfileFragment extends Fragment {
                         JSONArray jsonArray = new JSONArray(response);
 
                         JSONObject jsonObject = jsonArray.getJSONObject(0);
-                        img_url_profile = "http://192.168.100.187:80000/storage/images/" +jsonObject.getString("photo");
+                        img_url_profile = getResources().getString(R.string.url)+"/storage/images/" +jsonObject.getString("photo");
 
                         username = jsonObject.getString("name");
 
                         bio = jsonObject.getString("bio");
-
-
-
 
                         Picasso.get().load(img_url_profile).into(imgProfile);
                         tvUsername.setText(username);
@@ -332,11 +311,9 @@ public class UserProfileFragment extends Fragment {
 
                         Log.e("username : ",jsonArray.length()+"");
 
-
                     }catch (Exception e){
                         Log.e("HOUSE LIST JSON ",e.toString());
                     }
-
                 }
             }, new Response.ErrorListener() {
                 @Override

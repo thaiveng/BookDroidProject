@@ -74,13 +74,9 @@ public class Feed_fragment extends Fragment {
 
         recyclerViewBookFeed.setAdapter(feedAdapter);
 
-
-
-
         recyclerViewUserFeed = view.findViewById(R.id.recycler_user_feed);
 
         recyclerViewUserFeed.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
-
 
         FeedUserModel feedUserModel1 = new FeedUserModel("Uorn Tay","1000 followers","100 recommendatin",R.drawable.user_profile);
         FeedUserModel feedUserModel2 = new FeedUserModel("Uorn Ty","2000 followers","200 recommendatin",R.drawable.user_profile);
@@ -88,16 +84,13 @@ public class Feed_fragment extends Fragment {
         FeedUserModel feedUserModel4 = new FeedUserModel("Aun Chounry","4000 followers","400 recommendatin",R.drawable.user_profile);
         FeedUserModel feedUserModel5 = new FeedUserModel("Thol Thaiveng","5000 followers","500 recommendatin",R.drawable.user_profile);
 
-
         feedUserList.add(feedUserModel1);
         feedUserList.add(feedUserModel2);
         feedUserList.add(feedUserModel3);
         feedUserList.add(feedUserModel4);
         feedUserList.add(feedUserModel5);
 
-
         feedUserAdpater = new FeedUserAdpater(feedUserList,getActivity());
-
 
         recyclerViewUserFeed.setAdapter(feedUserAdpater);
 

@@ -62,18 +62,10 @@ public class EditUserProfileFragment extends Fragment implements BSImagePicker.O
                 BSImagePicker pickerDialog = new BSImagePicker.Builder("com.asksira.imagepickersheetdemo.fileprovider")
                         .build();
                 pickerDialog.show(getChildFragmentManager(), "picker");
-
             }
-
-
         });
-
-
         return view;
-
     }
-
-
     private void loadFragment(Fragment fragment){
         FragmentManager fm = getFragmentManager();
         FragmentTransaction tf = fm.beginTransaction();

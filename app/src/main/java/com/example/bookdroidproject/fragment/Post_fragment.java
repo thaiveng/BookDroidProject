@@ -85,7 +85,7 @@ public class Post_fragment extends Fragment implements BSImagePicker.OnSingleIma
     String[] cate_book = {"Novel","Sport","Programming","Mindset","Tourist","Mathematic"};
 
 
-    String url = "http://192.168.100.187:8000/api/book/post";
+    String url ;
 
 
     @Nullable
@@ -93,6 +93,7 @@ public class Post_fragment extends Fragment implements BSImagePicker.OnSingleIma
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.posts_fragment, container, false);
 
+        url = getResources().getString(R.string.url)+"/api/book/post";
         edtTitleBook = view.findViewById(R.id.edt_title_post_book);
         edtAuthorBook = view.findViewById(R.id.edt_author_post_book);
         edtDescriptionBook = view.findViewById(R.id.edt_des_post_book);
@@ -119,9 +120,6 @@ public class Post_fragment extends Fragment implements BSImagePicker.OnSingleIma
 
 
         });
-
-
-
 
         spinner = view.findViewById(R.id.spinner_category);
         ArrayAdapter<String> adapter = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_item,cate_book);
@@ -155,7 +153,6 @@ public class Post_fragment extends Fragment implements BSImagePicker.OnSingleIma
 
                     value_cate_id = 4;
                 }
-
 
                 if (cate_book[position].equals("Tourist")){
 
@@ -230,36 +227,36 @@ public class Post_fragment extends Fragment implements BSImagePicker.OnSingleIma
 
 
 
-    private void postData(String url, HashMap data) {
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(data), new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.e("save", response.toString());
-
-                String res = null;
-
-                try {
-                    res = response.getString("status");
-//                    Log.e("Status :: ",""+res);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                if (res.equals("successful")){
-                    Log.e("save", response.toString());
-                    Toast.makeText(getActivity(),"You posted successfully!",Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("error", error.toString());
-            }
-        });
-
-        requestQueue.add(request);
-    }
+//    private void postData(String url, HashMap data) {
+//        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(data), new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                Log.e("save", response.toString());
+//
+//                String res = null;
+//
+//                try {
+//                    res = response.getString("status");
+////                    Log.e("Status :: ",""+res);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                if (res.equals("successful")){
+//                    Log.e("save", response.toString());
+//                    Toast.makeText(getActivity(),"You posted successfully!",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e("error", error.toString());
+//            }
+//        });
+//
+//        requestQueue.add(request);
+//    }
 
     @Override
     public void onSingleImageSelected(Uri uri, String tag) {
@@ -277,8 +274,6 @@ public class Post_fragment extends Fragment implements BSImagePicker.OnSingleIma
     public void onMultiImageSelected(List<Uri> uriList, String tag) {
 
     }
-
-
 
     public void uploadMultipart(Uri fileURI) {
         try {
@@ -300,6 +295,7 @@ public class Post_fragment extends Fragment implements BSImagePicker.OnSingleIma
             mUploadRequest.addFileToUpload(path, "imgs");
 
             mUploadRequest.startUpload();
+
 
             Toast.makeText(getActivity(),"Upload successful", Toast.LENGTH_SHORT).show();
 
